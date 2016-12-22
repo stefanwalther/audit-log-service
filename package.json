@@ -10,11 +10,12 @@
     "docs": "verb",
     "dc-dev-up": "docker-compose --f=./dc-dev.yml up --build",
     "dc-dev-down": "docker-compose --f=./dc-dev.yml down",
+    "lint": "yarn run lint:src && yarn run lint:test",
     "lint:src": "eslint src",
     "lint:src:fix": "eslint src --fix",
     "lint:test": "eslint test",
     "lint:test:fix": "eslint test --fix",
-    "test": "yarn run lint:src && yarn run lint:test && yarn run test:integration",
+    "test": "yarn run lint && yarn run test:integration",
     "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
     "test:unit": "mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
   },

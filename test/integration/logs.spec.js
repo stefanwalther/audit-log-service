@@ -19,7 +19,6 @@ describe('jobs => integration', () => {
   });
 
   it('POST `logs` => creates a new log entry', () => {
-
     const doc = {
       name: 'foo'
     };
