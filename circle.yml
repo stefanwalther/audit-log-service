@@ -23,6 +23,8 @@ dependencies:
 test:
   override:
     - yarn test
+    - dockrer run -d -p 3003:3003 sammleriio/sammler-log-service; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:3003
 
 deployment:
   hub:
