@@ -1,7 +1,7 @@
 FROM kkarczmarczyk/node-yarn:7.2-slim
 MAINTAINER Stefan Walther
 
-ARG API_PORT=3003
+ARG API_PORT=3004
 ENV API_PORT=$API_PORT
 
 ENV HOME /home
