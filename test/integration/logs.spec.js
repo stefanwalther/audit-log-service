@@ -18,7 +18,20 @@ describe('jobs => integration', () => {
     return appServer.stop();
   });
 
-  it('', () => {
-    expect(true).to.be.true;
+  it('POST `logs` => creates a new log entry', () => {
+
+    const doc = {
+      name: 'foo'
+    };
+
+    return server
+      .post('/v1/logs')
+      .send(doc)
+      .expect(HttpStatus.CREATED)
+      .then(result => {
+        expect(result).to.exist;
+        expect(result.body).to.exist;
+        expect(result.body).to.have.a.property('name').to.be.equal(doc.name);
+      });
   });
 });
