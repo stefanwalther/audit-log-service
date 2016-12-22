@@ -4,6 +4,8 @@ machine:
   environment:
     YARN_VERSION: 0.17.9
     PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+  services:
+    - docker
 
 dependencies:
   pre:
