@@ -1,0 +1,41 @@
+{
+  "name": "sammler-log-service",
+  "version": "0.0.1",
+  "description": "Simple logging service (to MongoDB). To be replaced.",
+  "main": "index.js",
+  "repository": "https://github.com/sammler/sammler-log-service",
+  "author": "Stefan Walther",
+  "license": "MIT",
+  "scripts": {
+    "docs": "verb",
+    "dc-dev-up": "docker-compose --f=./dc-dev.yml up --build",
+    "dc-dev-down": "docker-compose --f=./dc-dev.yml down",
+    "lint:src": "eslint src",
+    "lint:src:fix": "eslint src --fix",
+    "lint:test": "eslint test",
+    "lint:test:fix": "eslint test --fix",
+    "test": "yarn run lint:src && yarn run lint:test && yarn run test:integration",
+    "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
+    "test:unit": "mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "http-status-codes": "^1.0.6",
+    "lodash": "^4.17.2",
+    "mongoose": "^4.7.4",
+    "mongoose-timestamp": "^0.6.0",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "eslint-config-xo-space": "^0.15.0",
+    "eslint-plugin-mocha": "^4.7.0",
+    "isparta": "^4.0.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2"
+  }
+}
