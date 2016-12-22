@@ -6,16 +6,12 @@ ENV API_PORT=$API_PORT
 
 ENV HOME /home
 RUN mkdir -p $HOME
-RUN mkdir -p $HOME/api
 
 WORKDIR $HOME
 
-COPY package.json .
-COPY yarn.lock .
+COPY package.json yarn.lock index.js /src ./
 
 RUN yarn install
-
-COPY /src ./src/
 
 EXPOSE $API_PORT
 

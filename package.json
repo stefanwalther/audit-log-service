@@ -15,6 +15,7 @@
     "lint:src:fix": "eslint src --fix",
     "lint:test": "eslint test",
     "lint:test:fix": "eslint test --fix",
+    "start": "node ./index.js",
     "test": "yarn run lint && yarn run test:integration",
     "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
     "test:unit": "mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
