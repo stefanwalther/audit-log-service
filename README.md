@@ -1,8 +1,8 @@
 # sammler-log-service
 
 > Simple logging service (to MongoDB). To be replaced.
-[![CircleCI](https://img.shields.io/circleci/project/github/sammler/sammler-log-service.svg)]()
 
+[![CircleCI](https://img.shields.io/circleci/project/github/sammler/sammler-log-service.svg)](https://circleci.com/gh/sammler/sammler-log-service)
 ## Configuration
 _sammler-log-service_ can be configured by the following environment variables:
 
