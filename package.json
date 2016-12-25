@@ -28,7 +28,6 @@
     "js-yaml": "^3.7.0",
     "lodash": "^4.17.2",
     "mongoose": "^4.7.4",
-    "mongoose-timestamp": "^0.6.0",
     "swagger-ui-express": "^1.0.2",
     "winston": "^2.3.0"
   },
