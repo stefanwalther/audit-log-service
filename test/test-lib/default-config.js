@@ -1,3 +1,3 @@
 module.exports = {
-  API_PORT: 3004
+  PORT: 3004
 };

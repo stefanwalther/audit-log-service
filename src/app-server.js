@@ -24,12 +24,12 @@ class AppServer {
 
   start() {
     return new Promise((resolve, reject) => {
-      this.server = this.app.listen(this.config.API_PORT, err => {
+      this.server = this.app.listen(this.config.PORT, err => {
         if (err) {
           this.logger.error('Cannot start express server', err);
           return reject(err);
         }
-        this.logger.debug('Express server listening on port %d in "%s" mode', this.config.API_PORT, this.app.settings.env);
+        this.logger.debug('Express server listening on port %d in "%s" mode', this.config.PORT, this.app.settings.env);
         return resolve();
       });
     });

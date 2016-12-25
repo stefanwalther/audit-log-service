@@ -1,8 +1,8 @@
 FROM kkarczmarczyk/node-yarn:7.2-slim
 MAINTAINER Stefan Walther
 
-ARG API_PORT=3004
-ENV API_PORT=$API_PORT
+ARG PORT=3004
+ENV PORT=$PORT
 
 ENV HOME /home
 RUN mkdir -p $HOME
@@ -13,6 +13,6 @@ COPY package.json yarn.lock index.js /src ./
 
 RUN yarn install
 
-EXPOSE $API_PORT
+EXPOSE $PORT
 
 CMD ["yarn", "run", "start"]
