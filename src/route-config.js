@@ -1,6 +1,9 @@
 const express = require('express');
 const LogsController = require('./modules/logs/logs.controller');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDoc = require('./config/api-docs.json');
+
 const HealthCheckController = require('./modules/health-check/health-check.controller');
 
 function init(app) {
@@ -10,6 +13,9 @@ function init(app) {
   router.get('/health-check', HealthCheckController.get);
 
   router.post(`/${version}/logs`, LogsController.post);
+
+  // Swagger
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
   app.use('/', router);
 }
