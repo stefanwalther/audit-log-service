@@ -9,9 +9,6 @@ _sammler-log-service_ can be configured by the following environment variables:
 
 - `PORT` - The port to run the REST API (defaults to `3004`).
 
-- `MONGOOSE_DEFAULTS_CREATED_AT` - Default name for the `created_at` field. (defaults to `s5r_created_at`)
-- `MONGOOSE_DEFAULTS_UPDATED_AT` - Default name for the `updated_at` field. (defaults to `s5r_updated_at`)
-
 ## Purpose
 _sammler-log-service_ is a very simple logging service, which just acts as a temporary
 solution to get some logging up and running.
