@@ -31,6 +31,7 @@ describe('jobs => integration', () => {
         expect(result).to.exist;
         expect(result.body).to.exist;
         expect(result.body).to.have.a.property('name').to.be.equal(doc.name);
+        expect(result.body).to.have.a.property('ts').to.exist;
       });
   });
 });

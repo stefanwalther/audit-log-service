@@ -8,6 +8,10 @@ const schema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  ts: {
+    type: Date,
+    default: new Date()
   }
 }, {
   collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_JOBS,
