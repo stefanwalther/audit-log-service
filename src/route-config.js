@@ -6,7 +6,6 @@ const swaggerUi = require('swagger-ui-express');
 
 const LogsController = require('./modules/logs/logs.controller');
 
-
 const HealthCheckController = require('./modules/health-check/health-check.controller');
 
 function init(app) {
@@ -18,7 +17,6 @@ function init(app) {
   router.post(`/${version}/logs`, LogsController.post);
 
   // Swagger
-
   const swaggerDoc = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './config/api-docs.yml'), 'utf8'));
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
