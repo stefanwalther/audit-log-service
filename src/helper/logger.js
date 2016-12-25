@@ -12,4 +12,10 @@ const logger = new Winston.Logger({
   exitOnError: false
 });
 
+logger.log = function () {
+  const args = arguments;
+  // args[1] = args[1] + '\r\n';
+  Winston.Logger.prototype.log.apply(this, args);
+};
+
 module.exports = logger;

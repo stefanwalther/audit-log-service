@@ -11,6 +11,12 @@ class LogsController {
         res.json(result);
       });
   }
+
+  static get(req) {
+    return LogsModel
+      .findById(req.param.id)
+      .exec();
+  }
 }
 
 module.exports = LogsController;
