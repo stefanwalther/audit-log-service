@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "docs": "verb",
-    "dc-dev-up": "docker-compose --f=./dc-dev.yml up --build",
-    "dc-dev-down": "docker-compose --f=./dc-dev.yml down",
+    "dc-dev-up": "docker-compose --f=./docker-compose.dev.yml up --build",
+    "dc-dev-down": "docker-compose --f=./docker-compose.dev.yml down",
     "lint": "yarn run lint:src && yarn run lint:test",
     "lint:src": "eslint src",
     "lint:src:fix": "eslint src --fix",
