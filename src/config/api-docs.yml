@@ -32,6 +32,8 @@ paths:
           description: Successfully created.
           schema:
             $ref: '#/definitions/logResult'
+      tags:
+        - Jobs
 
 
 ################################################################################
@@ -41,8 +43,6 @@ definitions:
   log:
     type: object
     properties:
-      _id:
-        type: string
       name:
         type: string
 

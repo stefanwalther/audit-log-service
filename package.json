@@ -25,6 +25,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "http-status-codes": "^1.0.6",
+    "js-yaml": "^3.7.0",
     "lodash": "^4.17.2",
     "mongoose": "^4.7.4",
     "mongoose-timestamp": "^0.6.0",
