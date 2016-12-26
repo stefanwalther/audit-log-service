@@ -34,6 +34,15 @@ paths:
             $ref: '#/definitions/logResult'
       tags:
         - Jobs
+    get:
+      description: Get all `log` objects.
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/logResult'
+      tags:
+        - Jobs
 
 
 ################################################################################
