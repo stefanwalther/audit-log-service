@@ -22,12 +22,13 @@ class Context {
 
   // Todo: See: http://stackoverflow.com/questions/6676499/is-there-a-mongoose-connect-error-callback
   dbConnect() {
-    const uri = 'mongodb://localhost:27017/logs';
+    const dbUri = process.env.SAMMLER_DB_URI_JOBS || 'mongodb://localhost:27017/logs';
+    console.log('SAMMLER_LOG_SERVICE => DB URI', dbUri);
     const options = {};
     mongoose.Promise = bluebird;
 
     mongoose.connection.on('connected', () => {
-      logger.debug('Mongoose default connection open to ' + uri);
+      logger.debug('Mongoose default connection open to ' + dbUri);
     });
 
     // If the connection throws an error
@@ -48,7 +49,7 @@ class Context {
       });
     });
 
-    this.db = mongoose.connect(uri, options);
+    this.db = mongoose.connect(dbUri, options);
   }
 
   dbDisconnect() {

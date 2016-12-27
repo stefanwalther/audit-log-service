@@ -9,9 +9,11 @@ RUN mkdir -p $HOME
 
 WORKDIR $HOME
 
-COPY package.json yarn.lock index.js /src ./
+COPY package.json yarn.lock index.js ./
 
 RUN yarn install
+
+COPY /src ./src/
 
 EXPOSE $PORT
 
