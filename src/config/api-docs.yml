@@ -54,6 +54,21 @@ definitions:
     properties:
       name:
         type: string
+      source:
+        type: string
+      level:
+        type: string
+        enum:
+          - error
+          - warn
+          - info
+          - verbose
+          - debug
+          - silly
+        defaultValue: info
+      message:
+        type: object
+
 
   logResult:
     type: object

@@ -13,6 +13,14 @@ const schema = new Schema({
     type: String,
     required: true
   },
+  level: {
+    type: String,
+    enum: ['error', 'warn', 'info', 'verbose', 'debug', 'silly'],
+    default: 'info'
+  },
+  message: {
+    type: Object
+  },
   ts: {
     type: Date,
     default: new Date()

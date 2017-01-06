@@ -9,6 +9,10 @@ class LogsController {
       .then(result => {
         res.status(HttpStatus.CREATED);
         res.json(result);
+      })
+      .catch(err => {
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+        res.json(err);
       });
   }
 
