@@ -1,6 +1,6 @@
 {
   "name": "sammler-log-service",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple logging service for sammler.",
   "license": "MIT",
   "author": "Stefan Walther",
