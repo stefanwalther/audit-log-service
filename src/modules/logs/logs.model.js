@@ -9,6 +9,10 @@ const schema = new Schema({
     type: String,
     required: true
   },
+  source: {
+    type: String,
+    required: true
+  },
   ts: {
     type: Date,
     default: new Date()

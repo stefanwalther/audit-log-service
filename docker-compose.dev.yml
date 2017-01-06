@@ -2,8 +2,7 @@ version: "2"
 
 services:
 
-  job-db:
-    container_name: "job-db"
+  log-db:
     image: mongo
     ports:
-      - "27017:27017"
+      - "27018:27017"

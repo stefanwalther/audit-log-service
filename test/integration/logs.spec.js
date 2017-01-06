@@ -20,7 +20,8 @@ describe('logs => integration', () => {
 
   it('POST /logs => creates a new log entry', () => {
     const doc = {
-      name: 'foo'
+      name: 'foo',
+      source: 'test'
     };
 
     return server
