@@ -4,7 +4,7 @@ const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
 
-describe('jobs => integration', () => {
+describe('logs => integration', () => {
   let server;
   const appServer = new AppServer(defaultConfig);
   before(() => {
@@ -18,13 +18,13 @@ describe('jobs => integration', () => {
     return appServer.stop();
   });
 
-  it('GET `/api-docs` => returns redirection to /api-docs/', () => {
+  it('GET /api-docs => returns redirection to /api-docs/', () => {
     return server
       .get('/api-docs')
       .expect(HttpStatus.MOVED_PERMANENTLY);
   });
 
-  it('GET `/api-docs/` => returns the api-docs', () => {
+  it('GET /api-docs/ => returns the api-docs', () => {
     return server
       .get('/api-docs/')
       .expect(HttpStatus.OK);

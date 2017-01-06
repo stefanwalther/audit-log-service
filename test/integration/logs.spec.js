@@ -4,7 +4,7 @@ const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
 
-describe('jobs => integration', () => {
+describe('logs => integration', () => {
   let server;
   const appServer = new AppServer(defaultConfig);
   before(() => {
@@ -18,7 +18,7 @@ describe('jobs => integration', () => {
     return appServer.stop();
   });
 
-  it('POST `logs` => creates a new log entry', () => {
+  it('POST /logs => creates a new log entry', () => {
     const doc = {
       name: 'foo'
     };

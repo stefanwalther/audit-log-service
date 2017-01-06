@@ -2,5 +2,5 @@
 module.exports = {
   COLLECTION_PREFIX: 'global~~',
 
-  COLLECTION_JOBS: 'jobs'
+  COLLECTION_JOBS: 'logs'
 };

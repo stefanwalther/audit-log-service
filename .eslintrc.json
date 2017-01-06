@@ -12,7 +12,8 @@
     "class-methods-use-this": 0,
     "no-trailing-spaces": 0,
     "no-param-reassign": 0,
-    "camelcase": 0
+    "camelcase": 0,
+    "padded-blocks": "off"
   },
 
   "parserOptions": {
