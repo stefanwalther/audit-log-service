@@ -2,14 +2,14 @@
   "name": "sammler-log-service",
   "version": "0.0.2",
   "description": "Simple logging service for sammler.",
+  "license": "MIT",
+  "author": "Stefan Walther",
   "main": "index.js",
   "repository": "https://github.com/sammler/sammler-log-service",
-  "author": "Stefan Walther",
-  "license": "MIT",
   "scripts": {
-    "docs": "verb",
-    "dc-dev-up": "docker-compose --f=./docker-compose.dev.yml up --build",
     "dc-dev-down": "docker-compose --f=./docker-compose.dev.yml down",
+    "dc-dev-up": "docker-compose --f=./docker-compose.dev.yml up --build",
+    "docs": "verb",
     "lint": "yarn run lint:src && yarn run lint:test",
     "lint:src": "eslint src",
     "lint:src:fix": "eslint src --fix",
@@ -40,5 +40,8 @@
     "mocha": "^3.2.0",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=7.0"
   }
 }
