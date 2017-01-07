@@ -1,6 +1,8 @@
 # project
 test.log
-
+.cache
+.yarn
+.config
 # IDEs
 .vscode
 .idea
