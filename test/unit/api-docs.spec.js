@@ -4,7 +4,7 @@ const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
 
-describe('logs => integration', () => {
+describe('logs => unit', () => {
   let server;
   const appServer = new AppServer(defaultConfig);
   before(() => {

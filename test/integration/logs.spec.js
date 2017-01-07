@@ -64,7 +64,7 @@ describe('logs => integration', () => {
       .post('/v1/logs')
       .send(doc)
       .expect(HttpStatus.CREATED)
-      .then( result => {
+      .then(result => {
         expect(result).to.exist;
         expect(result).to.have.a.property('body');
         expect(result.body).to.have.a.property('message');
