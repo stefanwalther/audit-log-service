@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'test') {
     transports: [
       new Winston.transports.Console({
         level: 'debug',
-        handleExceptions: true,
+        handleExceptions: false,
         json: false,
         colorize: true
       })
