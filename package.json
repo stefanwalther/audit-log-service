@@ -37,7 +37,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.13.0",
-    "eslint-config-sammler": "sammler/eslint-config-sammler",
+    "eslint-config-sammler": "*",
     "eslint-plugin-mocha": "^4.8.0",
     "isparta": "^4.0.0",
     "mocha": "^3.2.0",
