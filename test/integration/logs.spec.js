@@ -80,11 +80,12 @@ describe('logs => integration', () => {
 
   it('GET /logs/:id => returns and empty array for an unknown id', () => {
     return server
-      .get('/v1/logs/xxx')
-      .expect(HttpStatus.OK)
-      .catch(err => {
-        expect(err).to.not.exist;
-      });
+      .get('/v1/logs/43345823304969c878318d12')
+      .expect(HttpStatus.OK);
+  });
+
+  xit('GET /logs/:id => throws an error if an invalid id is passed', () => {
+    expect(true).to.be.false;
   });
 
 });
