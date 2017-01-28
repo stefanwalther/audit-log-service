@@ -15,7 +15,8 @@ function init(app) {
 
   router.get('/health-check', HealthCheckController.get);
 
-  router.get(`/${version}/logs/:id`, LogsController.get);
+  router.get(`/${version}/logs`, LogsController.get);
+  router.get(`/${version}/logs/:id`, LogsController.getById);
   router.post(`/${version}/logs`, LogsController.post);
 
   // Swagger

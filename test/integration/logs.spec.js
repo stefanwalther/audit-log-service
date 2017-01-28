@@ -71,4 +71,20 @@ describe('logs => integration', () => {
         expect(result.body.message).to.deep.equal(doc.message);
       });
   });
+
+  it('GET /logs => returns all logs', () => {
+    return server
+      .get('/v1/logs')
+      .expect(HttpStatus.OK);
+  });
+
+  it('GET /logs/:id => returns and empty array for an unknown id', () => {
+    return server
+      .get('/v1/logs/xxx')
+      .expect(HttpStatus.OK)
+      .catch(err => {
+        expect(err).to.not.exist;
+      });
+  });
+
 });
