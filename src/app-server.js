@@ -6,6 +6,8 @@ const Context = require('./config/context');
 const logger = require('./helper/logger');
 const routeConfig = require('./route-config');
 
+const MqWorker = require('./mq/mq-worker');
+
 class AppServer {
   constructor(config) {
     this.config = config || {};
@@ -20,6 +22,7 @@ class AppServer {
     this.app = express();
     this.app.use(bodyParser.json());
     routeConfig.init(this.app);
+    this.mqWorker = new MqWorker();
   }
 
   start() {
