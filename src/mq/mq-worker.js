@@ -1,5 +1,6 @@
 const amqp = require('amqplib');
 const LogsModel = require('./../modules/logs/logs.model').Model;
+const logger = require('winster').instance();
 
 class MqWorker {
   constructor() {
@@ -28,20 +29,23 @@ class MqWorker {
         ]).then(() => {
           ch.consume(queueName, this.handleMessage, {noAck: true});
         });
+      })
+      .catch(err => {
+        logger.error('Error connecting to queue.winston', err);
       });
   }
 
   handleMessage(msg) {
 
     // Todo: replace with logger
-    console.log(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString()); // eslint-disable-line quotes
+    logger.trace(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString()); // eslint-disable-line quotes
 
     const msgToLog = JSON.parse(msg.content.toString());
     msgToLog.source = 'foo';
     LogsModel
       .create(msgToLog)
       .catch(err => {
-        console.log(err);
+        logger.error(err);
       });
 
   }

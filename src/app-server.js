@@ -3,7 +3,7 @@ const express = require('express');
 const _ = require('lodash');
 
 const Context = require('./config/context');
-const logger = require('./helper/logger');
+const logger = require('winster').instance();
 const routeConfig = require('./route-config');
 
 const MqWorker = require('./mq/mq-worker');
@@ -32,7 +32,7 @@ class AppServer {
           this.logger.error('Cannot start express server', err);
           return reject(err);
         }
-        this.logger.debug('Express server listening on port %d in "%s" mode', this.config.PORT, this.app.settings.env);
+        this.logger.info('Express server listening on port %d in "%s" mode', this.config.PORT, this.app.settings.env);
         return resolve();
       });
     });
@@ -43,7 +43,7 @@ class AppServer {
       this.server.close(() => {
         // Todo: clean the connection to the DB properly
         // mongoose.disconnect();
-        this.logger.debug('Server stopped');
+        this.logger.info('Server stopped');
         resolve();
       });
     });

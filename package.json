@@ -32,6 +32,7 @@
     "js-yaml": "^3.7.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.7.6",
+    "sammler-nodelib-logger": "sammler/sammler-nodelib-logger",
     "swagger-ui-express": "^1.0.2",
     "winston": "^2.3.0"
   },

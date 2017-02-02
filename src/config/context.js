@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bluebird = require('bluebird');
-const logger = require('./../helper/logger');
+const logger = require('winster').instance();
 
 let instance;
 class Context {
@@ -23,7 +23,7 @@ class Context {
   // Todo: See: http://stackoverflow.com/questions/6676499/is-there-a-mongoose-connect-error-callback
   dbConnect() {
     const dbUri = process.env.SAMMLER_DB_URI_LOGS;
-    console.log('SAMMLER_LOG_SERVICE => DB URI', dbUri);
+    this.logger.trace('SAMMLER_LOG_SERVICE => DB URI', dbUri);
     const options = {};
     mongoose.Promise = bluebird;
 
