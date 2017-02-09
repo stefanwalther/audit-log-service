@@ -3,6 +3,7 @@ machine:
     version: 7.0.0
   environment:
     YARN_VERSION: 0.17.9
+    SAMMLER_DB_URI_LOGS: "mongodb://localhost:27017/logs"
     PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   services:
     - docker
