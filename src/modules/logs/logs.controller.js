@@ -43,6 +43,34 @@ class LogsController {
         res.json(err);
       });
   }
+
+  static deleteById(req, res) {
+    return LogsModel
+      .findByIdAndRemove(req.params.id)
+      .exec()
+      .then(result => {
+        res.status(HttpStatus.OK);
+        res.json(result);
+      })
+      .catch(err => {
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        res.json(err);
+      });
+  }
+
+  static delete(req, res) {
+    return LogsModel
+      .remove({})
+      .exec()
+      .then(result => {
+        res.status(HttpStatus.OK);
+        res.json(result);
+      })
+      .catch(err => {
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+        res.json(err);
+      });
+  }
 }
 
 module.exports = LogsController;

@@ -1,7 +1,7 @@
 swagger: '2.0'
 
 info:
-  version: "0.0.1"
+  version: "0.0.5"
   title: sammler-log-service
   license:
     name: MIT
@@ -33,7 +33,7 @@ paths:
           schema:
             $ref: '#/definitions/logResult'
       tags:
-        - Jobs
+        - Logs
     get:
       description: Get all `log` objects.
       responses:
@@ -42,7 +42,30 @@ paths:
           schema:
             $ref: '#/definitions/logResult'
       tags:
-        - Jobs
+        - Logs
+    delete:
+      description: Delete all log entries.
+      summary: Delete all log entries.
+      responses:
+        200:
+          description: OK
+
+
+  /logs/:id:
+    get:
+      description: Get log entry by Id.
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/logResult'
+      tags:
+        - Logs
+    delete:
+      description: Delete log entry by Id.
+      responses:
+        200:
+          description: OK
 
 
 ################################################################################
@@ -59,12 +82,14 @@ definitions:
       level:
         type: string
         enum:
+          - fatal
           - error
+          - debug
           - warn
+          - data
           - info
           - verbose
-          - debug
-          - silly
+          - trace
         defaultValue: info
       message:
         type: object
