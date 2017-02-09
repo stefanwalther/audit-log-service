@@ -8,7 +8,7 @@
 _sammler-log-service_ can be configured by the following environment variables:
 
 - `PORT` - The port to run the REST API (defaults to `3004`).
-- `SAMMLER_DB_URI_LOGS`
+- `SAMMLER_DB_URI_LOGS` - MongoDB connection, e.g. `mongodb://localhost:27017/logs`
 
 ## Purpose
 _sammler-log-service_ is a very simple logging service, which just acts as a temporary solution to get some logging up and running.
