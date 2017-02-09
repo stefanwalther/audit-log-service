@@ -3,6 +3,8 @@ version: "2"
 services:
 
   log-db:
-    image: mongo
+    extends:
+      file: ./node_modules/sammler-base/docker-compose.yml
+      service: s5r-mongo
     ports:
       - "27018:27017"

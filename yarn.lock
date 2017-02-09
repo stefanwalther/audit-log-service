@@ -1684,6 +1684,10 @@ rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
+sammler-base@sammler/sammler-base:
+  version "0.0.8"
+  resolved "https://codeload.github.com/sammler/sammler-base/tar.gz/c016816ff2ef64c6146a7db044e368c51b2c71a9"
+
 sammler-nodelib-logger@sammler/sammler-nodelib-logger:
   version "0.2.1"
   resolved "https://codeload.github.com/sammler/sammler-nodelib-logger/tar.gz/49a25c669075abde79e29d65faf1dcf05496c60b"

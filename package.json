@@ -43,6 +43,7 @@
     "eslint-plugin-mocha": "^4.8.0",
     "isparta": "^4.0.0",
     "mocha": "^3.2.0",
+    "sammler-base": "sammler/sammler-base",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.2"
   },
