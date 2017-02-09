@@ -53,7 +53,7 @@ class LogsController {
         res.json(result);
       })
       .catch(err => {
-        res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
         res.json(err);
       });
   }
