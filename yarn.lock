@@ -1124,7 +1124,7 @@ js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
 
-js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.7.0:
+js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.6.1, js-yaml@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
   dependencies:
@@ -1877,6 +1877,13 @@ supports-color@3.1.2, supports-color@^3.1.0:
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
+
+swagger-markdown@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/swagger-markdown/-/swagger-markdown-1.0.0.tgz#c7eed1e38bcd1083d9c872543e49e202d3b4888c"
+  dependencies:
+    argparse "^1.0.7"
+    js-yaml "^3.6.1"
 
 swagger-ui-express@^1.0.2:
   version "1.0.2"

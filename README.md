@@ -15,10 +15,12 @@ _sammler-log-service_ is a very simple logging service, which just acts as a tem
 
 It logs to MongoDB and exposes some endpoints to create and to retrieve logs.
 
-The solution will potentially be replaced or extended in the future (logstash, winston=>mongodb, etc.).
+The solution was primarily created, because the [ELK-stack](https://github.com/deviantony/docker-elk) just felt to heavy (> 1.5 GB RAM needed) for _sammler_.
 
 ## Features
 The functionality of _sammler-log-service_ is documented in a swagger file, available at [http://localhost:3004/api-docs](http://localhost:3004/api-docs) when running the image.
+
+Alternatively api-docs is also available [here](./docs/api-docs.md).
 
 ## Development
 Run 
