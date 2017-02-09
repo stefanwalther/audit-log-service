@@ -15,7 +15,7 @@ const schema = new Schema({
   },
   level: {
     type: String,
-    enum: ['error', 'warn', 'info', 'verbose', 'debug', 'silly'],
+    enum: ['fatal', 'error', 'debug', 'warn', 'data', 'info', 'verbose', 'trace'],
     default: 'info'
   },
   message: {
