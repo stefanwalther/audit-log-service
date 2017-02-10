@@ -83,10 +83,14 @@ describe('logs => integration tests', () => {
       .expect(HttpStatus.OK);
   });
 
-  it('GET /logs/:id => returns and empty array for an unknown id', () => {
+  it('GET /logs/:id => returns null for an unknown id', () => {
     return server
       .get('/v1/logs/43345823304969c878318d12')
-      .expect(HttpStatus.OK);
+      .expect(HttpStatus.OK)
+      .then(result => {
+        expect(result).to.exist;
+        expect(result.body).to.not.exist;
+      });
   });
 
   it('GET /logs/:id => throws an error if an invalid id is passed', () => {
