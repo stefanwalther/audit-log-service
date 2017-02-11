@@ -130,7 +130,5 @@ describe('logs => integration tests', () => {
             expect(resultDelete).to.have.a.property('body').to.have.a.property('_id').to.be.equal(resultInsert.body._id);
           });
       });
-
   });
-
 });
