@@ -3,9 +3,9 @@ const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
 const _ = require('lodash');
+const logger = require('winster').instance();
 
 const Context = require('./config/context');
-const logger = require('winster').instance();
 const routeConfig = require('./route-config');
 
 const MqWorker = require('./mq/mq-worker');

@@ -131,4 +131,23 @@ describe('logs => integration tests', () => {
           });
       });
   });
+
+  it('POST /logs/generate => generates misc logs', () => {
+    const opts = {
+      amount: 100
+    };
+
+    return server
+      .post('/v1/logs/generate')
+      .send(opts)
+      .expect(HttpStatus.CREATED)
+      .then(result => {
+        expect(result).to.exist;
+        expect(result.body).to.exist;
+        expect(result.body).to.have.a.property('insertedCount').to.be.equal(opts.amount);
+      })
+      .catch(err => {
+        expect(err).to.not.exist;
+      });
+  });
 });

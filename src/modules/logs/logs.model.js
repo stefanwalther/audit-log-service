@@ -31,7 +31,31 @@ const schema = new Schema({
 });
 /* eslint-enable camelcase */
 
+schema.statics.generate = function (opts) {
+
+  const docs = [];
+  for (let i = 0; i < opts.amount; i++) {
+    const doc = {
+      name: `log-entry ${i}`,
+      source: 'generated',
+      level: 'info',
+      message: {
+        text: `Detailed message for ${i}`
+      }
+    };
+    docs.push(doc);
+  }
+  return this.collection.insertMany(docs)
+    .then(result => {
+      return Promise.resolve(result);
+    })
+    .catch(err => {
+      return Promise.reject(err);
+    });
+};
+const model = mongoose.model(MongooseConfig.COLLECTION_JOBS, schema);
+
 module.exports = {
   Schema: schema,
-  Model: mongoose.model(MongooseConfig.COLLECTION_JOBS, schema)
+  Model: model
 };

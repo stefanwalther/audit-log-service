@@ -15,12 +15,17 @@ function init(app) {
 
   router.get('/health-check', HealthCheckController.get);
 
+  // logs
   router.get(`/${version}/logs`, LogsController.get);
   router.post(`/${version}/logs`, LogsController.post);
   router.delete(`/${version}/logs`, LogsController.delete);
 
+  // logs:id
   router.get(`/${version}/logs/:id`, LogsController.getById);
   router.delete(`/${version}/logs/:id`, LogsController.deleteById);
+
+  // logs/generate
+  router.post(`/${version}/logs/generate`, LogsController.generate);
 
   // Swagger
   const swaggerDoc = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './config/api-docs.yml'), 'utf8'));

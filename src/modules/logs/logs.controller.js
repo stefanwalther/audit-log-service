@@ -41,6 +41,15 @@ class LogsController {
       .then(result => ResStatus.ok(res, result))
       .catch(err => ResStatus.error(res, err));
   }
+
+  static generate(req, res) {
+    return LogsModel
+      .generate({
+        amount: 100
+      })
+      .then(result => ResStatus.created(res, result))
+      .catch(err => ResStatus.error(res, err));
+  }
 }
 
 module.exports = LogsController;
