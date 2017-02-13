@@ -28,6 +28,7 @@
     "amqplib": "^0.5.1",
     "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
     "express": "^4.14.0",
     "http-status-codes": "^1.0.6",
     "js-yaml": "^3.7.0",

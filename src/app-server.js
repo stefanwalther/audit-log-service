@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const express = require('express');
 const _ = require('lodash');
 
@@ -20,6 +21,7 @@ class AppServer {
 
   _initApp() {
     this.app = express();
+    this.app.use(compression());
     this.app.use(bodyParser.json());
     routeConfig.init(this.app);
     this.mqWorker = new MqWorker();

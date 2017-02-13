@@ -30,9 +30,7 @@ class MqWorker {
           ch.consume(queueName, this.handleMessage, {noAck: true});
         });
       })
-      .catch(err => {
-        logger.error('Error connecting to queue.winston', err);
-      });
+      .catch(err => logger.error('Error connecting to queue.winston', err));
   }
 
   handleMessage(msg) {
