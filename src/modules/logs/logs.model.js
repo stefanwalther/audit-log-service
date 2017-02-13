@@ -31,5 +31,7 @@ const schema = new Schema({
 });
 /* eslint-enable camelcase */
 
-module.exports.Schema = schema;
-module.exports.Model = mongoose.model(MongooseConfig.COLLECTION_JOBS, schema);
+module.exports = {
+  Schema: schema,
+  Model: mongoose.model(MongooseConfig.COLLECTION_JOBS, schema)
+};

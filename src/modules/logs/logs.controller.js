@@ -1,5 +1,5 @@
 const LogsModel = require('./logs.model').Model;
-const ResStatus = require('./../../helper/res-status');
+const ResStatus = require('./../../helpers/res-status');
 
 class LogsController {
 

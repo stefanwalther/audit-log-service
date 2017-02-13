@@ -25,6 +25,7 @@ class AppServer {
     this.app.use(compression());
     this.app.use(helmet());
     this.app.use(bodyParser.json());
+
     routeConfig.init(this.app);
     this.mqWorker = new MqWorker();
   }
