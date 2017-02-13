@@ -4,7 +4,8 @@ const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
 
-describe('logs => unit', () => {
+describe('logs => health-check', () => {
+
   let server;
   const appServer = new AppServer(defaultConfig);
   before(() => {
@@ -18,15 +19,14 @@ describe('logs => unit', () => {
     return appServer.stop();
   });
 
-  it('GET /api-docs => returns redirection to /api-docs/', () => {
+  it('returns OK and a timestamp', () => {
     return server
-      .get('/api-docs')
-      .expect(HttpStatus.MOVED_PERMANENTLY);
-  });
-
-  it('GET /api-docs/ => returns the api-docs', () => {
-    return server
-      .get('/api-docs/')
-      .expect(HttpStatus.OK);
+      .get('/health-check')
+      .expect(HttpStatus.OK)
+      .then(result => {
+        expect(result).to.exist;
+        expect(result).to.have.property('body');
+        expect(result.body).to.have.property('ts').to.exist;
+      });
   });
 });

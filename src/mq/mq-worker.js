@@ -37,7 +37,6 @@ class MqWorker {
 
   handleMessage(msg) {
 
-    // Todo: replace with logger
     logger.trace(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString()); // eslint-disable-line quotes
 
     const msgToLog = JSON.parse(msg.content.toString());
