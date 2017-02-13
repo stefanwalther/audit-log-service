@@ -53,5 +53,8 @@
   },
   "engines": {
     "node": ">=7.2"
+  },
+  "winster": {
+    "configFile": "./src/config/winster-config.js"
   }
 }
