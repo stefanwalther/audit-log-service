@@ -2,7 +2,7 @@ machine:
   node:
     version: 7.2.0
   environment:
-    YARN_VERSION: 0.17.9
+    YARN_VERSION: 0.20.3
     SAMMLER_DB_URI_LOGS: "mongodb://localhost:27017/logs"
     PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   services:
