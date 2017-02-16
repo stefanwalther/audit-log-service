@@ -38,7 +38,7 @@
     "mongoose-connection-promise": "^0.1.2",
     "sammler-nodelib-logger": "sammler/sammler-nodelib-logger",
     "swagger-ui-express": "^1.0.2",
-    "winster": "^0.2.5"
+    "winster": "*"
   },
   "devDependencies": {
     "chai": "^3.5.0",
