@@ -1430,6 +1430,14 @@ mongodb@2.2.22:
     mongodb-core "2.1.7"
     readable-stream "2.1.5"
 
+mongoose-connection-promise@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/mongoose-connection-promise/-/mongoose-connection-promise-0.1.2.tgz#85cbcad56196937d4085d7de9464ab52eb0f2959"
+  dependencies:
+    eslint-config-space-single "^0.0.4"
+    mongoose "^4.8.2"
+    winster "^0.2.5"
+
 mongoose@^4.8.2:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.8.2.tgz#d65e9e620867435369e41fc220ede29664118c58"

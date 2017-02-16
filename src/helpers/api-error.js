@@ -1,5 +1,5 @@
 // Taken and modified from https://github.com/KunalKapadia/express-mongoose-es6-rest-api/blob/develop/server/helpers/APIError.js
-const HttpStatus = require('http-status');
+const HttpStatus = require('http-status-codes');
 
 /**
  * @extends Error
