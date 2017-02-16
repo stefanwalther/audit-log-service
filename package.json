@@ -1,13 +1,13 @@
 {
-  "name": "sammler-log-service",
+  "name": "log-service",
   "version": "0.0.5",
   "description": "Simple logging service for sammler.",
   "license": "MIT",
   "author": "Stefan Walther",
   "main": "index.js",
-  "repository": "https://github.com/sammler/sammler-log-service",
+  "repository": "https://github.com/sammler/log-service",
   "scripts": {
-    "d-build": "docker build -t sammler/sammler-log-service .",
+    "d-build": "docker build -t sammler/log-service .",
     "dc-dev-down": "docker-compose --f=./docker-compose.dev.yml down",
     "dc-dev-up": "docker-compose --f=./docker-compose.dev.yml up --build",
     "docs": "yarn swagger-markdown && verb",
