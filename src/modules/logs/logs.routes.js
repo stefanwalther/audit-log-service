@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const LogsController = require('./logs.controller');
+
+const router = express.Router(); // eslint-disable-line new-cap
 
 // /logs
 router.get('', LogsController.get);
