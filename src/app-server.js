@@ -6,7 +6,7 @@ const _ = require('lodash');
 const logger = require('winster').instance();
 
 const Context = require('./config/context');
-const routeConfig = require('./route-config');
+const routesConfig = require('./config/routes-config');
 
 const MqWorker = require('./mq/mq-worker');
 
@@ -26,7 +26,7 @@ class AppServer {
     this.app.use(helmet());
     this.app.use(bodyParser.json());
 
-    routeConfig.init(this.app);
+    routesConfig.init(this.app);
     this.mqWorker = new MqWorker();
   }
 
