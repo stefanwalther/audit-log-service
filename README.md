@@ -44,5 +44,5 @@ $ yarn run test
 * [twitter/waltherstefan](http://twitter.com/waltherstefan)
 
 ## License
-Released under the MIT license.
+MIT
 
