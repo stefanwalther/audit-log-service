@@ -3,6 +3,7 @@ const HttpStatus = require('http-status-codes');
 const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
+const pkg = require('./../../package.json');
 
 describe('logs => health-check', () => {
 
@@ -27,6 +28,9 @@ describe('logs => health-check', () => {
         expect(result).to.exist;
         expect(result).to.have.property('body');
         expect(result.body).to.have.property('ts').to.exist;
+        expect(result.body).to.have.property('version').to.be.equal(pkg.version);
+        expect(result.body).to.have.property('name').to.be.equal(pkg.name);
+        expect(result.body).to.have.property('repository').to.be.equal(pkg.repository);
       });
   });
 });
