@@ -11,7 +11,6 @@
     "dc-dev-down": "docker-compose --f=./docker-compose.dev.yml down",
     "dc-dev-up": "docker-compose --f=./docker-compose.dev.yml up --build",
     "docs": "yarn swagger-markdown && verb",
-    "swagger-markdown": "node_modules/.bin/swagger-markdown -i src/config/api-docs.yml -o docs/api-docs.md",
     "lint": "yarn lint:src && yarn lint:test",
     "lint:fix": "yarn lint:src:fix && yarn lint:test:fix",
     "lint:src": "eslint src",
@@ -20,6 +19,7 @@
     "lint:test:fix": "eslint test --fix",
     "start": "node ./src/index.js",
     "start:dev": "nodemon -L --watch ./src --exec yarn start",
+    "swagger-markdown": "node_modules/.bin/swagger-markdown -i src/config/api-docs.yml -o docs/api-docs.md",
     "test": "yarn lint && yarn test:integration",
     "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
     "test:unit": "mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
@@ -54,6 +54,27 @@
   },
   "engines": {
     "node": ">=7.2"
+  },
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": []
+    },
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "verb",
+      "verb-readme-generator"
+    ]
   },
   "winster": {
     "configFile": "./src/config/winster-config.js"
