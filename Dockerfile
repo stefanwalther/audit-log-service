@@ -1,4 +1,4 @@
-FROM kkarczmarczyk/node-yarn:7.2-slim
+FROM sammlerio/node
 
 ARG PORT=3004
 ENV PORT=$PORT
