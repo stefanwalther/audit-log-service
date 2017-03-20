@@ -1,10 +1,9 @@
 # log-service
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/sammler/log-service.svg)](https://greenkeeper.io/)
-
 > Simple logging service for sammler.
 
-[![CircleCI](https://img.shields.io/circleci/project/github/sammler/log-service.svg)](https://circleci.com/gh/sammler/log-service)
+[![CircleCI](https://img.shields.io/circleci/project/github/sammler/log-service.svg)](https://circleci.com/gh/sammler/log-service)  
+[![Greenkeeper badge](https://badges.greenkeeper.io/sammler/log-service.svg)](https://greenkeeper.io/)
 
 ## Purpose
 _log-service_ is a very simple logging service, which just acts as a temporary solution to get some logging up and running.
