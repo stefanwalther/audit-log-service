@@ -1494,7 +1494,7 @@ mongoose-connection-promise@^0.1.2:
     mongoose "^4.8.2"
     winster "^0.2.5"
 
-mongoose@^4.8.2:
+mongoose@^4.8.2, mongoose@^4.9.1:
   version "4.9.1"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.9.1.tgz#e621d9e7356f46d1e39980a71063857405fa9099"
   dependencies:
