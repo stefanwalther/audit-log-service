@@ -35,7 +35,7 @@
     "http-status-codes": "^1.0.6",
     "js-yaml": "^3.7.0",
     "lodash": "^4.17.4",
-    "mongoose": "^4.9.1",
+    "mongoose": "^4.9.5",
     "mongoose-connection-promise": "^0.1.2",
     "sammler-nodelib-logger": "sammler/sammler-nodelib-logger",
     "swagger-ui-express": "^1.0.2",
