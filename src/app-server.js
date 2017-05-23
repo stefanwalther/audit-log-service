@@ -2,9 +2,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
-const _ = require('lodash');
 const logger = require('winster').instance();
-
 const Context = require('./config/context');
 const routesConfig = require('./config/routes-config');
 

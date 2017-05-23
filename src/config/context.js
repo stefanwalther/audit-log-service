@@ -54,6 +54,7 @@ class Context {
 
   dbDisconnect() {
     if (this.db) {
+      // eslint-disable-next-line capitalized-comments
       // this.db.disconnect();
       mongoose.disconnect();
     }
