@@ -33,7 +33,7 @@
     "express-result": "^0.1.0",
     "helmet": "^3.6.1",
     "http-status-codes": "^1.0.6",
-    "js-yaml": "^3.7.0",
+    "js-yaml": "^3.8.4",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.5",
     "mongoose-connection-promise": "^0.1.2",
