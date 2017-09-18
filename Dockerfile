@@ -3,18 +3,18 @@ FROM sammlerio/node
 ARG PORT=3004
 ENV PORT=$PORT
 
-RUN yarn global add nodemon
+RUN npm install nodemon -g
 
 ENV HOME /home
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json ./
 
-RUN yarn install --force
+RUN npm install
 
 COPY /src ./src/
 
 EXPOSE $PORT
 
-CMD ["yarn", "run", "start"]
+CMD ["npm", "run", "start"]
