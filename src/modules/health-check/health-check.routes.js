@@ -13,6 +13,8 @@ const HealthCheckController = require('./health-check.controller.js');
  *       200:
  *         description: Returned health-check status.
  */
-router.get('/health-check', HealthCheckController.get);
+router
+  .all('/health-check', HealthCheckController.all)
+  .get('/health-check', HealthCheckController.get);
 
 module.exports = router;
