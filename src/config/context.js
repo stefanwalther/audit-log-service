@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bluebird = require('bluebird');
 const logger = require('winster').instance();
 
 let instance;
@@ -26,7 +25,6 @@ class Context {
     const dbUri = process.env.SAMMLER_DB_URI_LOGS;
     this.logger.trace('SAMMLER_LOG_SERVICE => DB URI', dbUri);
     const options = {useMongoClient: true};
-    mongoose.Promise = bluebird;
 
     mongoose.connection.on('connected', () => {
       logger.debug('Mongoose default connection open to ' + dbUri);

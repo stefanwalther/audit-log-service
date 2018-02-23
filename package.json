@@ -28,30 +28,29 @@
   },
   "dependencies": {
     "amqplib": "^0.5.2",
-    "bluebird": "^3.4.7",
     "body-parser": "^1.18.2",
-    "compression": "^1.6.2",
+    "compression": "^1.7.2",
     "express": "^4.16.2",
     "express-result": "^0.1.0",
-    "helmet": "^3.6.1",
+    "helmet": "^3.11.0",
     "http-status-codes": "^1.3.0",
     "js-yaml": "^3.10.0",
-    "lodash": "^4.17.4",
-    "mongoose": "^4.9.5",
-    "mongoose-connection-promise": "^0.2.0",
-    "sammler-nodelib-logger": "sammler/sammler-nodelib-logger",
-    "swagger-ui-express": "^2.0.0",
-    "winster": "^0.2.7"
+    "lodash": "^4.17.5",
+    "mongoose": "^4.13.11",
+    "mongoose-connection-config": "^0.1.0",
+    "sammler-nodelib-logger": "github:sammler/sammler-nodelib-logger",
+    "swagger-ui-express": "^2.0.15",
+    "winster": "^0.2.9"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^4.11.0",
+    "eslint": "^4.18.1",
     "eslint-config-space-single": "^0.2.2",
     "eslint-plugin-mocha": "^4.8.0",
     "isparta": "^4.0.0",
     "mocha": "^3.5.3",
     "supertest": "^3.0.0",
-    "swagger-markdown": "^1.0.0"
+    "swagger-markdown": "^1.1.2"
   },
   "engines": {
     "node": ">=7.2"
