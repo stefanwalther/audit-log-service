@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "eslint": "4.11.0",
+    "eslint": "4.19.1",
     "eslint-config-space-single": "0.2.2",
     "eslint-plugin-mocha": "4.11.0",
     "isparta": "4.0.0",
