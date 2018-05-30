@@ -2,7 +2,7 @@ version: '2'
 services:
 
   mongo:
-    image: mongo:3.7.2
+    image: mongo:3.7.2@sha256:789abe3783aa352ee4a744cda40721262c4fc7c9925b0f4b992b523c10fa50a9
     ports:
       - 27018:27017
 
