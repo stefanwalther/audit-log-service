@@ -47,7 +47,7 @@
     "chai": "3.5.0",
     "eslint": "4.19.1",
     "eslint-config-space-single": "0.3.3",
-    "eslint-plugin-mocha": "4.11.0",
+    "eslint-plugin-mocha": "4.12.1",
     "isparta": "4.0.0",
     "mocha": "3.5.3",
     "supertest": "3.0.0",
