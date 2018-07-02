@@ -2,7 +2,7 @@
 # --------------------------------------
 #               BASE NODE
 # --------------------------------------
-FROM node:8.6.0 as BASE
+FROM node:8.11.3@sha256:625d0b446f63b2d051c7b2a468f6cee63536dec716f09afcf9ae1c575d9b953a as BASE
 
 ARG PORT=3101
 ENV PORT=$PORT
@@ -41,7 +41,7 @@ RUN  npm run lint:fix && npm run lint && npm run test:unit
 # --------------------------------------
 #                 RELEASE
 # --------------------------------------
-FROM node:8.6.0-alpine as RELEASE
+FROM node:8.11.3-alpine@sha256:c9f2470464363addb0be6a61678f44854e73eee974bbc792a71d4d2b7ffd5edd as RELEASE
 
 ARG PORT=3000
 ENV PORT=$PORT
