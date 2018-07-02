@@ -24,7 +24,7 @@ class Context {
   dbConnect() {
     const dbUri = process.env.SAMMLER_DB_URI_LOGS;
     this.logger.trace('SAMMLER_LOG_SERVICE => DB URI', dbUri);
-    const options = {useMongoClient: true};
+    const options = {};
 
     mongoose.connection.on('connected', () => {
       logger.debug('Mongoose default connection open to ' + dbUri);
