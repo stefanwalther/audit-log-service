@@ -7,6 +7,7 @@ const defaultConfig = require('./../test-lib/default-config');
 describe('logs => integration tests', () => {
   let server;
   const appServer = new AppServer(defaultConfig);
+
   before(() => {
     return appServer.start()
       .then(() => {

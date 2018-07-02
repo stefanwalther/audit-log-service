@@ -11,7 +11,7 @@ ENV HOME /opt/log-service
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 # --------------------------------------
 #              DEPENDENCIES
@@ -50,7 +50,7 @@ ENV HOME /opt/log-service
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY index.js package.json package-lock.json nodemon.json ./
+COPY index.js package.json nodemon.json ./
 
 # copy production node_modules
 COPY --from=dependencies $HOME/prod_node_modules ./node_modules
