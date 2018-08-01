@@ -41,7 +41,7 @@ RUN  npm run lint:fix && npm run lint && npm run test:unit
 # --------------------------------------
 #                 RELEASE
 # --------------------------------------
-FROM node:8.11.3-alpine@sha256:c9f2470464363addb0be6a61678f44854e73eee974bbc792a71d4d2b7ffd5edd as RELEASE
+FROM node:8.11.3-alpine@sha256:d3ecde67a30db99d10a32173cc2fee8766bb42430feb2f819179c8dcf494dac1 as RELEASE
 
 ARG PORT=3000
 ENV PORT=$PORT
