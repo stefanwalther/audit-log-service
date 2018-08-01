@@ -2,7 +2,7 @@
 # --------------------------------------
 #               BASE NODE
 # --------------------------------------
-FROM node:8.11.3@sha256:625d0b446f63b2d051c7b2a468f6cee63536dec716f09afcf9ae1c575d9b953a as BASE
+FROM node:8.11.3@sha256:deb6287c3b94e153933ed9422db4524d2ee41be00b32c88a7cd2d91d17bf8a5e as BASE
 
 ARG PORT=3101
 ENV PORT=$PORT
