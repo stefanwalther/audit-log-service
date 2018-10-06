@@ -1,30 +1,17 @@
 const express = require('express');
-const yaml = require('js-yaml');
-const fs = require('fs');
-const path = require('path');
 const swaggerUi = require('swagger-ui-express');
-const pkg = require('./../../package.json');
 
-const healthCheckRoutes = require('./../modules/health-check/health-check.routes.js');
+// Routes controllers
+const ApiDocsController = require('./../modules/api-docs/api-docs.controller');
+const healthCheckRoutes = require('./../modules/health-check/health-check.routes');
 const logsRoutes = require('./../modules/logs/logs.routes');
+const apiDocsRoutes = require('./../modules/api-docs/api-docs.routes');
 
-function init(app) {
-  const router = express.Router(); // eslint-disable-line new-cap
+const router = express.Router(); // eslint-disable-line new-cap
 
-  // /health-check
-  app.use('/', healthCheckRoutes);
+router.use('/', healthCheckRoutes);
+router.use('/', apiDocsRoutes);
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(ApiDocsController.getDocs()));
+router.use('/v1/logs', logsRoutes);
 
-  // /logs
-  app.use('/v1/logs', logsRoutes);
-
-  // /api-docs
-  const swaggerDoc = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './api-docs.yml'), 'utf8'));
-  swaggerDoc.info.version = pkg.version;
-  app.use('/api-docs/', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-
-  app.use('/', router);
-}
-
-module.exports = {
-  init
-};
+module.exports = router;

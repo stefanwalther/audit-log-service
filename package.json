@@ -1,18 +1,12 @@
 {
-  "name": "log-service",
+  "name": "log",
   "version": "0.0.5",
   "description": "Simple logging service for sammler.",
   "license": "MIT",
   "author": "Stefan Walther",
   "main": "index.js",
-  "repository": "https://github.com/sammler/log-service",
+  "repository": "https://github.com/sammler/log",
   "scripts": {
-    "d-build": "docker build -t sammlerio/log-service .",
-    "d-run": "docker run -it sammlerio/log-service",
-    "dc-down:dev": "docker-compose --f=./docker-compose.dev.yml down",
-    "dc-up:dev": "docker-compose --f=./docker-compose.dev.yml up",
-    "dc-up:devb": "docker-compose --f=./docker-compose.dev.yml up --build",
-    "docs": "npm run swagger-markdown && verb",
     "lint": "npm run lint:src && npm run lint:test",
     "lint:fix": "npm run lint:src:fix && npm run lint:test:fix",
     "lint:src": "eslint src",
@@ -29,27 +23,32 @@
   "dependencies": {
     "amqplib": "^0.5.2",
     "body-parser": "^1.18.3",
-    "compression": "^1.7.2",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
+    "express-initializers": "0.0.1",
     "express-result": "^0.1.4",
     "helmet": "^3.12.1",
     "http-status-codes": "^1.3.0",
     "js-yaml": "^3.12.0",
     "lodash": "^4.17.10",
-    "mongoose": "5.1.7",
-    "mongoose-connection-config": "^0.1.1",
+    "mongoose": "5.3.1",
+    "mongoose-connection-config": "^0.1.2",
+    "read-pkg-up": "^4.0.0",
     "sammler-nodelib-logger": "0.2.2",
-    "swagger-ui-express": "^3.0.10",
+    "serve-favicon": "^2.5.0",
+    "swagger-jsdoc": "^3.2.3",
+    "swagger-ui-express": "^4.0.1",
     "winster": "^0.2.11"
   },
   "devDependencies": {
-    "chai": "4.1.2",
-    "eslint": "5.2.0",
+    "chai": "4.2.0",
+    "eslint": "5.6.1",
     "eslint-config-space-single": "0.3.5",
-    "eslint-plugin-mocha": "5.1.0",
+    "eslint-plugin-mocha": "5.2.0",
     "isparta": "4.1.0",
     "mocha": "5.2.0",
-    "supertest": "3.1.0",
+    "supertest": "3.3.0",
     "swagger-markdown": "1.1.5"
   },
   "engines": {
@@ -75,8 +74,5 @@
       "verb",
       "verb-readme-generator"
     ]
-  },
-  "winster": {
-    "configFile": "./src/config/winster-config.js"
   }
 }

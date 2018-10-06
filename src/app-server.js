@@ -1,41 +1,41 @@
-const bodyParser = require('body-parser');
-const compression = require('compression');
-const helmet = require('helmet');
+const initializer = require('express-initializers');
+const _ = require('lodash');
 const express = require('express');
 const logger = require('winster').instance();
-const Context = require('./config/context');
-const routesConfig = require('./config/routes-config');
+const path = require('path');
+const MongooseConnectionConfig = require('mongoose-connection-config');
+const mongoose = require('mongoose');
+
+const mongoUri = new MongooseConnectionConfig(require('./config/mongoose-config')).getMongoUri();
+const defaultConfig = require('./config/config');
 
 class AppServer {
   constructor(config) {
-    this.config = config || {};
+    this.config = _.extend(_.clone(defaultConfig), config || {});
 
     this.server = null;
     this.logger = logger;
-    this.context = Context.instance();
     this._initApp();
   }
 
   _initApp() {
     this.app = express();
-    this.app.use(compression());
-    this.app.use(helmet());
-    this.app.use(bodyParser.json());
-
-    routesConfig.init(this.app);
   }
 
-  start() {
-    return new Promise((resolve, reject) => {
-      this.server = this.app.listen(this.config.PORT, err => {
-        if (err) {
-          this.logger.error('Cannot start express server', err);
-          return reject(err);
-        }
-        this.logger.info('Express server listening on port %d in "%s" mode', this.config.PORT, this.app.settings.env);
-        return resolve();
-      });
-    });
+  async start() {
+
+    await initializer(this.app, {directory: path.join(__dirname, 'config/initializers')});
+    this.logger.trace(`mongoUri: ${mongoUri}`);
+
+    // Todo: OK; we have to change this ...
+    await mongoose.connect(mongoUri + '/Notification', {useNewUrlParser: true});
+
+    try {
+      this.server = await this.app.listen(this.config.PORT);
+      this.logger.info(`Express server listening on port ${this.config.PORT} in "${this.config.NODE_ENV}" mode`);
+    } catch (err) {
+      this.logger.error('Cannot start express server', err);
+    }
   }
 
   stop() {

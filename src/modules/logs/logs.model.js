@@ -26,7 +26,7 @@ const schema = new Schema({
     default: new Date()
   }
 }, {
-  collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_JOBS,
+  collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_LOGS,
   strict: true
 });
 /* eslint-enable camelcase */
