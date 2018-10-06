@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     machine: true
-    working_directory: ~/log-service
+    working_directory: ~/logs
     environment:
-      SERVICE_NAME: log-service
-      DOCKER_REPO: sammlerio/log-service
+      SERVICE_NAME: logs
+      DOCKER_REPO: sammlerio/logs
       DOCKER_URL: https://download.docker.com/linux/static/stable/x86_64/docker-17.06.0-ce.tgz
       DOCKER_COMPOSE_URL: https://github.com/docker/compose/releases/download/1.14.0/docker-compose-Linux-x86_64
     steps:
