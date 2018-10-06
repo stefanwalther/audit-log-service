@@ -20,7 +20,7 @@
     "lint:test": "eslint test",
     "lint:test:fix": "eslint test --fix",
     "start": "node ./src/index.js",
-    "start:dev": "nodemon -L --watch ./src --exec npm run start",
+    "start:watch": "nodemon -L --watch ./src --exec npm run start",
     "swagger-markdown": "node_modules/.bin/swagger-markdown -i src/config/api-docs.yml -o docs/api-docs.md",
     "test": "npm run lint && npm run test:integration && npm run test:unit",
     "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",

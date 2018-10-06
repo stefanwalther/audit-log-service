@@ -6,8 +6,6 @@ const logger = require('winster').instance();
 const Context = require('./config/context');
 const routesConfig = require('./config/routes-config');
 
-const MqWorker = require('./mq/mq-worker');
-
 class AppServer {
   constructor(config) {
     this.config = config || {};
@@ -25,7 +23,6 @@ class AppServer {
     this.app.use(bodyParser.json());
 
     routesConfig.init(this.app);
-    this.mqWorker = new MqWorker();
   }
 
   start() {
