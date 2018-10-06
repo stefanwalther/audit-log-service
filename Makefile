@@ -9,21 +9,21 @@ help:																		## Show this help.
 	@echo ''
 .PHONY: help
 
-
 gen-readme:															## Generate README.md (using docker-verb).
 	docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
 .PHONY: gen-readme
 
-# Todo: Change & remove
-d-build: 						## Build the docker image (sammlerio/strategy-heartbeat).
-	npm run d-build
-.PHONY: d-build
+build:																	## Build the docker image.
+	docker build -t ${REPO}/${SERVICE} .
+.PHONY: build
 
-# Todo: Change & remove
-d-run: 							## Run the docker-image.
-	npm run d-run
-.PHONY: d-run
+build-no-cache:													## Build the docker image (no-cache).
+	docker build --no-cache -t ${REPO}/${SERVICE} .
+.PHONY: build-no-cache
 
+get-image-size:
+	docker images --format "{{.Repository}} {{.Size}}" | grep ${REPO}/${SERVICE} | cut -d\   -f2
+.PHONY: get-image-size
 
 circleci-validate: 	## Validate the circleci config.
 	circleci config validate

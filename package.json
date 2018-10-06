@@ -1,11 +1,11 @@
 {
-  "name": "log",
+  "name": "logs",
   "version": "0.0.5",
   "description": "Simple logging service for sammler.",
   "license": "MIT",
   "author": "Stefan Walther",
   "main": "index.js",
-  "repository": "https://github.com/sammler/log",
+  "repository": "https://github.com/sammler/logs",
   "scripts": {
     "lint": "npm run lint:src && npm run lint:test",
     "lint:fix": "npm run lint:src:fix && npm run lint:test:fix",

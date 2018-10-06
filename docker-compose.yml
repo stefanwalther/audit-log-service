@@ -6,3 +6,7 @@ services:
     ports:
       - 27018:27017
 
+  log:
+    image: sammlerio/log
+    ports:
+      - "3004:3004"
