@@ -42,7 +42,7 @@ RUN  npm run lint:fix && npm run lint && npm run test:unit
 ## -------------------------------------------------------------------
 ##                              RELEASE
 ## -------------------------------------------------------------------
-FROM node:${NODE_VER} as RELEASE
+FROM node:${NODE_VER}-alpine as RELEASE
 
 ARG PORT=3004
 ENV PORT=$PORT
