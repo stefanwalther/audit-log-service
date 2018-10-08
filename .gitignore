@@ -2,6 +2,8 @@
 # Project specific
 # =========================
 coverage/
+.cache/
+.config/
 
 # =========================
 # IDEs
