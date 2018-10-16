@@ -18,6 +18,12 @@ const schema = new Schema({
     enum: ['fatal', 'error', 'debug', 'warn', 'data', 'info', 'verbose', 'trace'],
     default: 'info'
   },
+  trace_id: {
+    type: String
+  },
+  parent_trace_id: {
+    type: String
+  },
   message: {
     type: Object
   },
