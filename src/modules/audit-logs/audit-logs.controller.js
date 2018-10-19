@@ -1,17 +1,17 @@
-const LogsModel = require('./logs.model').Model;
+const AuditLogsModel = require('./audit-logs.model').Model;
 const ExpressResult = require('express-result');
 
-class LogsController {
+class AuditLogsController {
 
   static post(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .create(req.body)
       .then(result => ExpressResult.created(res, result))
       .catch(err => ExpressResult.error(res, err));
   }
 
   static get(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .find()
       .exec()
       .then(result => ExpressResult.ok(res, result))
@@ -19,7 +19,7 @@ class LogsController {
   }
 
   static getById(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .findById(req.params.id)
       .exec()
       .then(result => ExpressResult.ok(res, result))
@@ -27,7 +27,7 @@ class LogsController {
   }
 
   static deleteById(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .findByIdAndRemove(req.params.id)
       .exec()
       .then(result => ExpressResult.ok(res, result))
@@ -35,7 +35,7 @@ class LogsController {
   }
 
   static delete(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .remove({})
       .exec()
       .then(result => ExpressResult.ok(res, result))
@@ -43,7 +43,7 @@ class LogsController {
   }
 
   static generate(req, res) {
-    return LogsModel
+    return AuditLogsModel
       .generate({
         amount: 100
       })
@@ -52,4 +52,4 @@ class LogsController {
   }
 }
 
-module.exports = LogsController;
+module.exports = AuditLogsController;

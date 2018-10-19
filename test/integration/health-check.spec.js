@@ -5,7 +5,7 @@ const AppServer = require('./../../src/app-server');
 const defaultConfig = require('./../test-lib/default-config');
 const pkg = require('./../../package.json');
 
-describe('logs => health-check', () => {
+describe('audit-logs => health-check', () => {
 
   let server;
   const appServer = new AppServer(defaultConfig);

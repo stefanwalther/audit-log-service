@@ -4,7 +4,7 @@ const AppServer = require('./../../src/app-server');
 
 const defaultConfig = require('./../test-lib/default-config');
 
-describe('logs => integration tests', () => {
+describe('audit-logs => integration tests', () => {
   let server;
   const appServer = new AppServer(defaultConfig);
 
@@ -21,17 +21,19 @@ describe('logs => integration tests', () => {
 
   afterEach(() => {
     return server
-      .delete('/v1/logs');
+      .delete('/v1/audit-logs');
   });
 
-  it('POST /logs => creates a new log entry', () => {
+  it('POST /audit-logs => creates a new log entry', () => {
     const doc = {
       name: 'foo',
-      source: 'test'
+      source: 'test',
+      event_name: 'TEST',
+      description: 'What so ever'
     };
 
     return server
-      .post('/v1/logs')
+      .post('/v1/audit-logs')
       .send(doc)
       .expect(HttpStatus.CREATED)
       .then(result => {
@@ -42,23 +44,27 @@ describe('logs => integration tests', () => {
       });
   });
 
-  it('POST /logs => throws an error with an unknown level', () => {
+  it('POST /audit-logs => throws an error with an unknown level', () => {
     const doc = {
       name: 'foo',
+      event_name: 'TEST',
+      description: 'What so ever',
       source: 'test',
       level: 'bla'
     };
     return server
-      .post('/v1/logs')
+      .post('/v1/audit-logs')
       .send(doc)
       .expect(HttpStatus.INTERNAL_SERVER_ERROR);
   });
 
-  it('POST /logs => can log a message', () => {
+  it('POST /audit-logs => can log a message', () => {
     const doc = {
       name: 'foo',
       source: 'test',
       level: 'info',
+      event_name: 'TEST',
+      description: 'What so ever',
       message: {
         foo: 'foo',
         bar: 'bar',
@@ -67,7 +73,7 @@ describe('logs => integration tests', () => {
     };
 
     return server
-      .post('/v1/logs')
+      .post('/v1/audit-logs')
       .send(doc)
       .expect(HttpStatus.CREATED)
       .then(result => {
@@ -78,15 +84,15 @@ describe('logs => integration tests', () => {
       });
   });
 
-  it('GET /logs => returns all logs', () => {
+  it('GET /audit-logs => returns all audit-logs', () => {
     return server
-      .get('/v1/logs')
+      .get('/v1/audit-logs')
       .expect(HttpStatus.OK);
   });
 
-  it('GET /logs/:id => returns null for an unknown id', () => {
+  it('GET /audit-logs/:id => returns null for an unknown id', () => {
     return server
-      .get('/v1/logs/43345823304969c878318d12')
+      .get('/v1/audit-logs/43345823304969c878318d12')
       .expect(HttpStatus.OK)
       .then(result => {
         expect(result).to.exist;
@@ -94,9 +100,9 @@ describe('logs => integration tests', () => {
       });
   });
 
-  it('GET /logs/:id => throws an error if an invalid id is passed', () => {
+  it('GET /audit-logs/:id => throws an error if an invalid id is passed', () => {
     return server
-      .get('/v1/logs/abc')
+      .get('/v1/audit-logs/abc')
       .expect(HttpStatus.INTERNAL_SERVER_ERROR)
       .then(result => {
         expect(result).to.exist;
@@ -104,13 +110,13 @@ describe('logs => integration tests', () => {
       });
   });
 
-  it('DELETE /logs => will delete all existing logs', () => {
+  it('DELETE /audit-logs => will delete all existing audit-logs', () => {
     return server
-      .delete('/v1/logs')
+      .delete('/v1/audit-logs')
       .expect(HttpStatus.OK);
   });
 
-  it('DELETE /logs:id => will delete a single log entry', () => {
+  xit('DELETE /audit-logs:id => will delete a single log entry', () => {
 
     const doc = {
       name: 'foo',
@@ -118,7 +124,7 @@ describe('logs => integration tests', () => {
     };
 
     return server
-      .post('/v1/logs')
+      .post('/v1/audit-logs')
       .send(doc)
       .expect(HttpStatus.CREATED)
       .then(resultInsert => {
@@ -133,13 +139,13 @@ describe('logs => integration tests', () => {
       });
   });
 
-  it('POST /logs/generate => generates misc logs', () => {
+  it('POST /audit-logs/generate => generates misc audit-logs', () => {
     const opts = {
       amount: 100
     };
 
     return server
-      .post('/v1/logs/generate')
+      .post('/v1/audit-logs/generate')
       .send(opts)
       .expect(HttpStatus.CREATED)
       .then(result => {

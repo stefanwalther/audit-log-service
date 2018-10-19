@@ -27,7 +27,6 @@ class AppServer {
     await initializer(this.app, {directory: path.join(__dirname, 'config/initializers')});
     this.logger.trace(`mongoUri: ${mongoUri}`);
 
-    // Todo: OK; we have to change this ...
     await mongoose.connect(mongoUri + '/Notification', {useNewUrlParser: true});
 
     try {
@@ -38,15 +37,21 @@ class AppServer {
     }
   }
 
-  stop() {
-    return new Promise(resolve => {
-      this.server.close(() => {
-        // Todo: clean the connection to the DB properly
-        // mongoose.disconnect();
-        this.logger.info('Server stopped');
-        resolve();
-      });
-    });
+  async stop() {
+    try {
+      await mongoose.connection.close();
+      mongoose.models = {};
+      mongoose.ModelSchemas = {};
+      this.logger.verbose('Closed mongoose connection');
+    } catch (e) {
+      this.logger.verbose('Could not close mongoose connection', e);
+    }
+    try {
+      await this.server.close();
+      this.logger.info('Server stopped');
+    } catch (e) {
+      this.logger.error('Could not close server', e);
+    }
   }
 
 }

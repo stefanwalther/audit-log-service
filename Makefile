@@ -57,10 +57,10 @@ up-deps:																				## Start required services (daemon mode).
 .PHONY: up-deps
 
 up-deps-i:																			## Start required services (interactive mode).
-	docker-compose --f docker-compose.deps.yml up -d
+	docker-compose --f docker-compose.deps.yml up
 .PHONY: up-deps-i
 
 
-down-deps:
+down-deps:																			## Tear down required services.
 	docker-compose --f docker-compose.deps.yml down -t 0
 .PHONY: down-deps

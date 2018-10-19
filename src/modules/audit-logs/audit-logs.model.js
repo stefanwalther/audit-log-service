@@ -5,6 +5,27 @@ const Schema = mongoose.Schema;
 
 /* eslint-disable camelcase */
 const schema = new Schema({
+
+  tenant_id: {
+    type: Schema.Types.ObjectId
+  },
+  user_id: {
+    type: Schema.Types.ObjectId
+  },
+  event_name: {
+    type: String,
+    uppercase: true,
+    required: true
+  },
+  action_type: {
+    type: String,
+    uppercase: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+
   name: {
     type: String,
     required: true
@@ -30,12 +51,9 @@ const schema = new Schema({
   ts: {
     type: Date,
     default: new Date()
-  },
-  user_id: {
-    type: Schema.Types.ObjectId
   }
 }, {
-  collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_LOGS,
+  collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_AUDIT_LOGS,
   strict: true
 });
 /* eslint-enable camelcase */
@@ -62,7 +80,7 @@ schema.statics.generate = function (opts) {
       return Promise.reject(err);
     });
 };
-const model = mongoose.model(MongooseConfig.COLLECTION_JOBS, schema);
+const model = mongoose.model(MongooseConfig.COLLECTION_AUDIT_LOGS, schema);
 
 module.exports = {
   Schema: schema,

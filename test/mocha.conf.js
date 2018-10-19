@@ -1,6 +1,6 @@
 process.env.NODE_ENV = 'test';
 if (process.env.CIRCLECI !== 'true') {
-  process.env.SAMMLER_DB_URI_LOGS = 'mongodb://localhost:27018/logs';
+  process.env.SAMMLER_DB_URI_LOGS = 'mongodb://localhost:27018/audit-logs';
 }
 global.expect = require('chai').expect;
 
