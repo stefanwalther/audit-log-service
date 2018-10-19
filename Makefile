@@ -1,5 +1,5 @@
 REPO = sammlerio
-SERVICE = log-service
+SERVICE = audit-log-service
 VER=latest
 
 help:																		## Show this help.

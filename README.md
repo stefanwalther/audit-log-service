@@ -1,24 +1,31 @@
-# logs
+# audit-log-service
 
 > Simple logging service for sammler.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/sammler/log-service.svg)](https://circleci.com/gh/sammler/log-service)
 
 ## Purpose
-_logs_ is a very simple logging service, which just acts as a temporary solution to get some logging up and running.
+_audit-log-service_ is a very simple logging service, which just acts as a temporary solution to get some logging up and running.
 
 It logs to MongoDB and exposes some endpoints to create and to retrieve logs.
 
 The solution was primarily created, because the [ELK-stack](https://github.com/deviantony/docker-elk) just felt to heavy (> 1.5 GB RAM needed) for _sammler_.
 
 ## Configuration
-_logs_ can be configured by the following environment variables:
+_audit-log-service_ can be configured by the following environment variables:
+
+**General:**
 
 - `PORT` - The port to run the REST API (defaults to `3004`).
-- `SAMMLER_DB_URI_LOGS` - MongoDB connection, e.g. `mongodb://localhost:27017/logs`
+
+**MongoDB:**
+
+- `MONGODB_DEBUG` - Whether to use the Mongoose debug mode or not, defaults to `false`.
+- `MONGODB_HOST` - MongoDB host, defaults to `localhost`.
+- `MONGODB_PORT` - MongoDB port, defaults to `27017`. 
 
 ## Features
-The functionality of _logs_ is documented in a swagger file, available at [http://localhost:3004/api-docs](http://localhost:3004/api-docs) when running the image.
+The functionality of _audit-log-service_ is documented in a swagger file, available at [http://localhost:3004/api-docs](http://localhost:3004/api-docs) when running the image.
 
 Alternatively api-docs is also available [here](./docs/api-docs.md).
 

@@ -1,5 +1,5 @@
 {
-  "name": "logs",
+  "name": "audit-log-service",
   "version": "0.0.5",
   "description": "Simple logging service for sammler.",
   "license": "MIT",

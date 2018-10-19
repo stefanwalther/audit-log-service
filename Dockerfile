@@ -8,7 +8,7 @@ FROM node:${NODE_VER} as BASE
 ARG PORT=3104
 ENV PORT=$PORT
 
-ENV HOME /opt/log-service
+ENV HOME /opt/audit-log-service
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
@@ -47,7 +47,7 @@ FROM node:${NODE_VER}-alpine as RELEASE
 ARG PORT=3004
 ENV PORT=$PORT
 
-ENV HOME /opt/log-service
+ENV HOME /opt/audit-log-service
 RUN mkdir -p $HOME
 WORKDIR $HOME
 

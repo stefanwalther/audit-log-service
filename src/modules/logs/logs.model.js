@@ -30,6 +30,9 @@ const schema = new Schema({
   ts: {
     type: Date,
     default: new Date()
+  },
+  user_id: {
+    type: Schema.Types.ObjectId
   }
 }, {
   collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_LOGS,
