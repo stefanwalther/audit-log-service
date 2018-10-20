@@ -19,7 +19,6 @@ function publishMsg() {
     event_name: 'TEST',
     description: 'What so ever',
     source: '/test',
-    message: 'Hello NATS-streaming',
     ts: new Date()
   };
 
