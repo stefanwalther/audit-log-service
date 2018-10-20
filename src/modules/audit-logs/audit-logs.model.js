@@ -25,14 +25,15 @@ const schema = new Schema({
     type: String,
     required: true
   },
-
-  name: {
-    type: String,
-    required: true
-  },
   source: {
     type: String,
     required: true
+  },
+
+  // ---
+
+  name: {
+    type: String
   },
   level: {
     type: String,

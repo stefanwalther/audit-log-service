@@ -9,6 +9,7 @@
 - [x] ActionType - The corresponding `C` `R` `U` `D` category.
 - [x] Event Name - Common name for the event that can be used to filter down to similar events.
   - e.g. `AUTH`, `SYS`, `USER_SETTINGS`
+- [ ] source - Where does the event come from
   
 ## Further readings
 

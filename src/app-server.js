@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const mongoUri = new MongooseConnectionConfig(require('./config/mongoose-config')).getMongoUri();
 const defaultConfig = require('./config/config');
 
+const AuditLogsSubscriber = require('./modules/audit-logs/audit-logs.subscriber');
+
 class AppServer {
   constructor(config) {
     this.config = _.extend(_.clone(defaultConfig), config || {});
@@ -28,6 +30,7 @@ class AppServer {
     this.logger.trace(`mongoUri: ${mongoUri}`);
 
     await mongoose.connect(mongoUri + '/Notification', {useNewUrlParser: true});
+    this._initSubscribers();
 
     try {
       this.server = await this.app.listen(this.config.PORT);
@@ -35,6 +38,11 @@ class AppServer {
     } catch (err) {
       this.logger.error('Cannot start express server', err);
     }
+  }
+
+  _initSubscribers() {
+    let auditLogsSubscriber = new AuditLogsSubscriber();
+    auditLogsSubscriber.subscribe();
   }
 
   async stop() {
