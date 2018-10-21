@@ -12,6 +12,11 @@ const schema = new Schema({
   user_id: {
     type: Schema.Types.ObjectId
   },
+  event_domain: {
+    type: String,
+    uppercase: true,
+    required: true
+  },
   event_name: {
     type: String,
     uppercase: true,
