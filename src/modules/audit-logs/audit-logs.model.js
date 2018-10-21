@@ -36,7 +36,7 @@ const schema = new Schema({
   },
   ts: {
     type: Date,
-    default: new Date()
+    default: Date.now
   },
 
   // ---
