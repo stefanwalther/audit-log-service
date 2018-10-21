@@ -2,7 +2,7 @@ version: '2'
 services:
 
   mongo:
-    image: sammlerio/mongo
+    image: mongo
     ports:
       - 27017:27017
 

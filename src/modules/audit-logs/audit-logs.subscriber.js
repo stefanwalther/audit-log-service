@@ -1,6 +1,7 @@
 const Stan = require('node-nats-streaming');
 const logger = require('winster').instance();
 const AuditLogsModel = require('./audit-logs.model').Model;
+const config = require('./../../config/config');
 
 let stan = null;
 
@@ -8,6 +9,7 @@ class AuditLogsSubscriber {
   constructor() {
     this.clusterId = 'test-cluster';
     this.clientId = 'audit-log-service_' + process.pid;
+    this.server = config.NATS_STREAMING_SERVER;
   }
 
   subscribe(clusterId, clientId, natsOpts) {
@@ -21,7 +23,7 @@ class AuditLogsSubscriber {
 
     logger.verbose('clusterId', this.clusterId);
     logger.verbose('clientId', this.clientId);
-    let stanInstance = Stan.connect(clusterId || this.clusterId, clientId || this.clientId, opts, () => {
+    let stanInstance = Stan.connect(clusterId || this.clusterId, clientId || this.clientId, this.server, opts, () => {
       this.logger.verbose('We are connected to stan');
     });
 
