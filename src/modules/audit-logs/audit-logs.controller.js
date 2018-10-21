@@ -17,6 +17,7 @@ class AuditLogsController {
   static get(req, res) {
     return AuditLogsModel
       .find()
+      .sort({ts: -1})
       .exec()
       .then(result => ExpressResult.ok(res, result))
       .catch(err => ExpressResult.error(res, err));
