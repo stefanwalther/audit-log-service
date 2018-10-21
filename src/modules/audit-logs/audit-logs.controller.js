@@ -3,6 +3,8 @@ const ExpressResult = require('express-result');
 
 class AuditLogsController {
 
+  // Todo: Test
+  // Todo: Auth, RBAC
   static post(req, res) {
     return AuditLogsModel
       .create(req.body)
@@ -10,6 +12,8 @@ class AuditLogsController {
       .catch(err => ExpressResult.error(res, err));
   }
 
+  // Todo: Test
+  // Todo: Auth, RBAC
   static get(req, res) {
     return AuditLogsModel
       .find()
@@ -18,6 +22,20 @@ class AuditLogsController {
       .catch(err => ExpressResult.error(res, err));
   }
 
+  // Todo: Test
+  static getByDomain(req, res) {
+    return AuditLogsModel
+      .find({
+        event_domain: req.body.event_domain,
+        user_id: req.body.user_id
+      })
+      .exec()
+      .then(result => ExpressResult.ok(res, result))
+      .catch(err => ExpressResult.error(res, err));
+  }
+
+  // Todo: Test
+  // Todo: Auth
   static getById(req, res) {
     return AuditLogsModel
       .findById(req.params.id)
@@ -26,6 +44,8 @@ class AuditLogsController {
       .catch(err => ExpressResult.error(res, err));
   }
 
+  // Todo: Test
+  // Todo: Auth
   static deleteById(req, res) {
     return AuditLogsModel
       .findByIdAndRemove(req.params.id)
@@ -34,6 +54,8 @@ class AuditLogsController {
       .catch(err => ExpressResult.error(res, err));
   }
 
+  // Todo: Test
+  // Todo: Auth
   static delete(req, res) {
     return AuditLogsModel
       .remove({})
@@ -42,6 +64,8 @@ class AuditLogsController {
       .catch(err => ExpressResult.error(res, err));
   }
 
+  // Todo: Test
+  // Todo: Auth (only admins)
   static generate(req, res) {
     return AuditLogsModel
       .generate({

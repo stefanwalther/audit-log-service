@@ -34,6 +34,10 @@ const schema = new Schema({
     type: String,
     required: true
   },
+  ts: {
+    type: Date,
+    default: new Date()
+  },
 
   // ---
 
@@ -54,10 +58,6 @@ const schema = new Schema({
   message: {
     type: Object
   },
-  ts: {
-    type: Date,
-    default: new Date()
-  }
 }, {
   collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_AUDIT_LOGS,
   strict: true

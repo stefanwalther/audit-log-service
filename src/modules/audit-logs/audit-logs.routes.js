@@ -13,8 +13,12 @@ router.post('', LogsController.post);
 router.delete('', LogsController.delete);
 
 // /audit-logs:id
+router.get('', LogsController.get);
 router.get('/:id', LogsController.getById);
 router.delete('/:id', LogsController.deleteById);
+
+// /audit-logs/by-domain
+router.get('/by-domain', LogsController.getByDomain);
 
 /**
  * @swagger
