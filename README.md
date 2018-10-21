@@ -2,7 +2,7 @@
 
 > Simple logging service for sammler.
 
-[![CircleCI](https://img.shields.io/circleci/project/github/sammler/log-service.svg)](https://circleci.com/gh/sammler/log-service)
+[![CircleCI](https://img.shields.io/circleci/project/github/sammler/audit-log-service.svg)](https://circleci.com/gh/sammler/audit-log-service)
 
 ## Purpose
 _audit-log-service_ is a very simple logging service, which just acts as a temporary solution to get some logging up and running.
