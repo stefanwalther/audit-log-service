@@ -13,7 +13,7 @@ class AuditLogsSubscriber {
   }
 
   subscribe(clusterId, clientId, natsOpts) {
-    const opts = Object.assign( natsOpts || {}, {
+    const opts = Object.assign(natsOpts || {}, {
       json: true,
       reconnect: true,
       reconnectTimeWait: 2000,

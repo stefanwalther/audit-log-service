@@ -6,21 +6,21 @@ const Schema = mongoose.Schema;
 /* eslint-disable camelcase */
 const schema = new Schema({
 
-  tenant_id: {
-    type: Schema.Types.ObjectId
-  },
-  user_id: {
-    type: Schema.Types.ObjectId
-  },
   event_domain: {
     type: String,
-    uppercase: true,
+    lowercase: true,
     required: true
   },
-  event_name: {
+  event: {
     type: String,
-    uppercase: true,
+    lowercase: true,
     required: true
+  },
+  actor_group: {
+    type: Schema.Types.ObjectId
+  },
+  actor: {
+    type: Schema.Types.ObjectId
   },
   action_type: {
     type: String,
@@ -34,16 +34,6 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  ts: {
-    type: Date,
-    default: Date.now
-  },
-
-  // ---
-
-  name: {
-    type: String
-  },
   level: {
     type: String,
     enum: ['fatal', 'error', 'debug', 'warn', 'data', 'info', 'verbose', 'trace'],
@@ -55,9 +45,22 @@ const schema = new Schema({
   parent_trace_id: {
     type: String
   },
-  message: {
+  details: {
     type: Object
   },
+  debug_info: {
+    type: Object
+  },
+  environment: {
+    type: Object
+  },
+  actor_environment: {
+    type: Object
+  },
+  ts: {
+    type: Date,
+    default: Date.now
+  }
 }, {
   collection: MongooseConfig.COLLECTION_PREFIX + MongooseConfig.COLLECTION_AUDIT_LOGS,
   strict: true
