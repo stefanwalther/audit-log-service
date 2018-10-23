@@ -26,9 +26,9 @@ describe('audit-logs => integration tests', () => {
 
   it('POST /audit-logs => creates a new log entry', () => {
     const doc = {
-      name: 'foo',
+      event_domain: 'event_domain',
+      event: 'event_name',
       source: 'test',
-      event_name: 'TEST',
       description: 'What so ever'
     };
 
@@ -39,7 +39,8 @@ describe('audit-logs => integration tests', () => {
       .then(result => {
         expect(result).to.exist;
         expect(result.body).to.exist;
-        expect(result.body).to.have.a.property('name').to.be.equal(doc.name);
+        expect(result.body).to.have.a.property('event_domain').to.be.equal(doc.event_domain);
+        expect(result.body).to.have.a.property('event').to.be.equal(doc.event);
         expect(result.body).to.have.a.property('ts').to.exist;
       });
   });
@@ -60,12 +61,12 @@ describe('audit-logs => integration tests', () => {
 
   it('POST /audit-logs => can log a message', () => {
     const doc = {
-      name: 'foo',
+      event_domain: 'event_domain',
+      event: 'event',
+      description: 'What so ever',
       source: 'test',
       level: 'info',
-      event_name: 'TEST',
-      description: 'What so ever',
-      message: {
+      details: {
         foo: 'foo',
         bar: 'bar',
         baz: 'baz'
@@ -79,8 +80,7 @@ describe('audit-logs => integration tests', () => {
       .then(result => {
         expect(result).to.exist;
         expect(result).to.have.a.property('body');
-        expect(result.body).to.have.a.property('message');
-        expect(result.body.message).to.deep.equal(doc.message);
+        expect(result.body).to.have.a.property('details').to.deep.equals(doc.details);
       });
   });
 
@@ -157,4 +157,6 @@ describe('audit-logs => integration tests', () => {
         expect(err).to.not.exist;
       });
   });
+
+  it('only the admin can delete all logs');
 });

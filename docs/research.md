@@ -5,6 +5,7 @@
 - `event` - The event, e.g. `login`, `logout`, `change_password`
 - `actor_group` - The group (aka organization, team, account) that the actor is a member of (needed to show admins the full history of their group). Typically the tenant id.
 - `actor` - The username, uuid, API token name of the account taking the action. Typically the user id.
+- `actor_details`
 - `action_type` - The corresponding `C` `R` `U` `D` category.
 - `description` - A human readable description of the action taken.
 - `source` - Where does the event come from (which service), e.g. `/auth-service`.

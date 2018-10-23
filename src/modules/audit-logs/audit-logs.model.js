@@ -22,6 +22,9 @@ const schema = new Schema({
   actor: {
     type: Schema.Types.ObjectId
   },
+  actor_details: {
+    type: Object
+  },
   action_type: {
     type: String,
     uppercase: true

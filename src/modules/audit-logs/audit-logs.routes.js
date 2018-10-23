@@ -12,8 +12,9 @@ router.get('', LogsController.get);
 router.post('', LogsController.post);
 router.delete('', LogsController.delete);
 
-// /audit-logs:id
+// /audit-logs
 router.get('', LogsController.get);
+// /audit-logs:id
 router.get('/:id', LogsController.getById);
 router.delete('/:id', LogsController.deleteById);
 
