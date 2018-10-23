@@ -4,7 +4,7 @@
 coverage/
 .cache/
 .config/
-.datastore                  #nats
+.datastore/                  #nats
 
 # =========================
 # IDEs
