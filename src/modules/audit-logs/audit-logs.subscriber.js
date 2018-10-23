@@ -13,6 +13,10 @@ class AuditLogsSubscriber {
   }
 
   subscribe(clusterId, clientId, natsOpts) {
+
+    const NATS_SUBJECT = 'audit-logs';
+    const NATS_QUEUE = 'audit-logs.workers';
+
     const opts = Object.assign(natsOpts || {}, {
       json: true,
       reconnect: true,
@@ -31,8 +35,9 @@ class AuditLogsSubscriber {
       logger.verbose('We are connected to stan (on:connect)');
       stan = stanInstance;
 
-      let subscriptionOptions = stan.subscriptionOptions().setDeliverAllAvailable();
-      let subscription = stan.subscribe('audit-logs', subscriptionOptions);
+      let subscriptionOptions = stan.subscriptionOptions()
+        .setStartWithLastReceived();
+      let subscription = stan.subscribe(NATS_SUBJECT, NATS_QUEUE, subscriptionOptions);
 
       subscription.on('message', function (msg) {
         console.log(`audit-logs:on:message [ ${msg.getSequence()} ]`, msg.getData());
