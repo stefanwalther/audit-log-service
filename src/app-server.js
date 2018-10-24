@@ -29,7 +29,7 @@ class AppServer {
     await initializer(this.app, {directory: path.join(__dirname, 'config/initializers')});
     this.logger.trace(`mongoUri: ${mongoUri}`);
 
-    await mongoose.connect(mongoUri + '/Notification', {useNewUrlParser: true});
+    await mongoose.connect(mongoUri, {useNewUrlParser: true});
     this._initSubscribers();
 
     try {

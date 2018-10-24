@@ -11,3 +11,8 @@ _{%=name%}_ can be configured by the following environment variables:
 - `MONGODB_HOST` - MongoDB host, defaults to `localhost`.
 - `MONGODB_PORT` - MongoDB port, defaults to `27017`. 
 - `MONGODB_DATABASE` - MongoDB database, defaults to `sammlerio`.
+
+**NATS-STREAMING:**
+
+- `NATS_STREAMING_HOST`
+- `NATS_STREAMING_PORT`
