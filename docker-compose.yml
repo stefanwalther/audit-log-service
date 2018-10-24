@@ -8,5 +8,10 @@ services:
 
   audit-log-service:
     image: sammlerio/audit-log-service
+    environment:
+    - MONGODB_DEBUG=false
+    - MONGODB_HOST=mongo
+    - MONGODB_PORT=27017
+    - MONGODB_DATABASE=sammler_audit-log-service
     ports:
       - "3004:3004"
