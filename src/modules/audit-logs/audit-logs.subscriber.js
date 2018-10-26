@@ -25,10 +25,8 @@ class AuditLogsSubscriber {
       waitOnFirstconnect: true
     });
 
-    logger.verbose('clusterId', this.clusterId);
-    logger.verbose('clientId', this.clientId);
     let stanInstance = Stan.connect(clusterId || this.clusterId, clientId || this.clientId, this.server, opts, () => {
-      this.logger.verbose('We are connected to stan');
+      logger.verbose('We are connected to stan');
     });
 
     stanInstance.on('connect', function () {
