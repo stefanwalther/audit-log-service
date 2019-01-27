@@ -1,23 +1,25 @@
 REPO = sammlerio
 SERVICE = audit-log-service
 VER=latest
+NODE_VER := $(shell cat .nvmrc)
 
-help:																								## Show this help.
+help:																						## Show this help.
 	@echo ''
 	@echo 'Available commands:'
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	@echo ''
 .PHONY: help
 
-gen-readme:																					## Generate README.md (using docker-verb).
+gen-readme:																			## Generate README.md (using docker-verb).
 	docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
 .PHONY: gen-readme
 
-build:																							## Build the docker image.
-	docker build --force-rm -t ${REPO}/${SERVICE} -f Dockerfile.prod .
+build:																					## Build the docker image.
+	NODE_VER=$(NODE_VER)
+	docker build --build-arg NODE_VER=$(NODE_VER) -t ${REPO}/${SERVICE} -f Dockerfile.prod .
 .PHONY: build
 
-build-test:								## Build the docker image (test image)
+build-test:																			## Build the docker image (test image)
 	docker build --force-rm -t ${REPO}/${SERVICE}-test -f Dockerfile.test .
 .PHONY: build-test
 
@@ -54,11 +56,11 @@ down:
 	docker-compose down -t 0
 .PHONY: down
 
-run-lint:
-	docker-compose --f=docker-compose.tests.yml run §{SERVICE}-test npm run lint
+run-lint:																				## Run all lint-tests (src + test)
+	docker-compose --f=docker-compose.tests.yml run ${SERVICE}-test npm run lint
 .PHONY: run-lint
 
-run-tests: 								## Run tests
+run-tests: 																			## Run tests
 	docker-compose --f=docker-compose.tests.yml run ${SERVICE}-test npm run test
 .PHONY: run-tests
 
