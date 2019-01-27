@@ -14,7 +14,7 @@ gen-readme:																					## Generate README.md (using docker-verb).
 .PHONY: gen-readme
 
 build:																							## Build the docker image.
-	docker build -t ${REPO}/${SERVICE} .
+	docker build --force-rm -t ${REPO}/${SERVICE} -f Dockerfile.prod .
 .PHONY: build
 
 build-test:								## Build the docker image (test image)
@@ -33,19 +33,6 @@ gen-version-file:
 	@SHA=$(shell git rev-parse --short HEAD) \
 		node -e "console.log(JSON.stringify({ SHA: process.env.SHA, version: require('./package.json').version, buildTime: (new Date()).toISOString() }))" > version.json
 .PHONY: gen-version-file
-
-build: build-image
-.PHONY: build
-
-build-image:
-	$(MAKE) gen-version-file
-	docker build -t $(REPO)/$(SERVICE) .
-.PHONY: build-image
-
-build-ci:
-	$(MAKE) build-image
-	docker tag $(REPO)/$(SERVICE):latest $(REPO)/$(SERVICE):$(shell cat ./version.json)
-.PHONY: build-ci
 
 up-deps:																				## Start required services (daemon mode).
 	docker-compose --f docker-compose.deps.yml up -d

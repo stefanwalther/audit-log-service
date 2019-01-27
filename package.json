@@ -47,7 +47,6 @@
     "eslint": "5.7.0",
     "eslint-config-space-single": "0.3.11",
     "eslint-plugin-mocha": "5.2.0",
-    "isparta": "4.1.0",
     "mocha": "5.2.0",
     "supertest": "3.3.0",
     "swagger-markdown": "1.1.5"
