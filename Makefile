@@ -17,21 +17,13 @@ build:																							## Build the docker image.
 	docker build -t ${REPO}/${SERVICE} .
 .PHONY: build
 
-build-no-cache:																			## Build the docker image (no-cache).
-	docker build --no-cache -t ${REPO}/${SERVICE} .
-.PHONY: build-no-cache
+build-test:								## Build the docker image (test image)
+	docker build --force-rm -t ${REPO}/${SERVICE}-test -f Dockerfile.test .
+.PHONY: build-test
 
 get-image-size:
 	docker images --format "{{.Repository}} {{.Size}}" | grep ${REPO}/${SERVICE} | cut -d\   -f2
 .PHONY: get-image-size
-
-circleci-validate: 																	## Validate the circleci config.
-	circleci config validate
-.PHONY: circleci-validate
-
-circleci-build:																			## Build circleci locally.
-	circleci build
-.PHONY: circleci-build
 
 setup:
 	@echo "Setup ... nothing here right now"
@@ -74,3 +66,21 @@ up-i:
 down:
 	docker-compose down -t 0
 .PHONY: down
+
+run-lint:
+	docker-compose --f=docker-compose.tests.yml run §{SERVICE}-test npm run lint
+.PHONY: run-lint
+
+run-tests: 								## Run tests
+	docker-compose --f=docker-compose.tests.yml run ${SERVICE}-test npm run test
+.PHONY: run-tests
+
+circleci:																				## Simulate CircleCI tests
+	$(MAKE) build
+	$(MAKE) build-test
+	$(MAKE) run-tests
+.PHONY: circleci
+
+circleci-validate: 																	## Validate the circleci config.
+	circleci config validate
+.PHONY: circleci-validate
