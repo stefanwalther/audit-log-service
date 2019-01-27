@@ -7,7 +7,7 @@ const MongooseConnectionConfig = require('mongoose-connection-config');
 const mongoose = require('mongoose');
 
 const mongoUri = new MongooseConnectionConfig(require('./config/mongoose-config')).getMongoUri();
-const defaultConfig = require('./config/config');
+const defaultConfig = require('./config/server-config');
 
 const AuditLogsSubscriber = require('./modules/audit-logs/audit-logs.subscriber');
 

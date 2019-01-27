@@ -1,7 +1,7 @@
 const Stan = require('node-nats-streaming');
 const logger = require('winster').instance();
 const AuditLogsModel = require('./audit-logs.model').Model;
-const config = require('./../../config/config');
+const config = require('../../config/server-config');
 
 let stan = null;
 
