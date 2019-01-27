@@ -23,6 +23,12 @@ _audit-log-service_ can be configured by the following environment variables:
 - `MONGODB_DEBUG` - Whether to use the Mongoose debug mode or not, defaults to `false`.
 - `MONGODB_HOST` - MongoDB host, defaults to `localhost`.
 - `MONGODB_PORT` - MongoDB port, defaults to `27017`. 
+- `MONGODB_DATABASE` - MongoDB database, defaults to `sammlerio`.
+
+**NATS-STREAMING:**
+
+- `NATS_STREAMING_HOST`
+- `NATS_STREAMING_PORT`
 
 ## Features
 The functionality of _audit-log-service_ is documented in a swagger file, available at [http://localhost:3004/api-docs](http://localhost:3004/api-docs) when running the image.
