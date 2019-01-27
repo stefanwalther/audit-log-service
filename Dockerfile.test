@@ -1,4 +1,4 @@
-FROM sammlerio/audit-log-service:latest
+FROM sammlerio/audit-logs:latest
 
 RUN npm config set loglevel warn
 RUN npm install --quiet
