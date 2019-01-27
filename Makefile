@@ -1,5 +1,5 @@
 REPO = sammlerio
-SERVICE = audit-log-service
+SERVICE = audit-logs
 VER=latest
 NODE_VER := $(shell cat .nvmrc)
 

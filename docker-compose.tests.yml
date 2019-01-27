@@ -2,7 +2,7 @@ version: '2'
 services:
 
   mongo:
-    image: mongo
+    image: sammlerio/mongo
     ports:
       - 27017:27017
 
@@ -21,8 +21,8 @@ services:
       "--dir", "datastore"
     ]
 
-  audit-log-service-test:
-    image: sammlerio/audit-log-service-test
+  audit-logs-test:
+    image: sammlerio/audit-logs-test
     environment:
       - MONGODB_DEBUG=false
       - MONGODB_HOST=mongo
