@@ -34,7 +34,7 @@
     "lodash": "^4.17.10",
     "mongoose": "5.3.6",
     "mongoose-connection-config": "^0.1.2",
-    "node-nats-streaming": "0.0.50",
+    "node-nats-streaming": "0.0.51",
     "read-pkg-up": "^4.0.0",
     "sammler-nodelib-logger": "0.2.2",
     "serve-favicon": "^2.5.0",
