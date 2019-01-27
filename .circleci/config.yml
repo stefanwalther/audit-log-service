@@ -21,7 +21,10 @@ jobs:
           name: Pull public docker images in the background
           background: true
           command: |
-            docker pull node:8.9.4-alpine
+            NODE_VER=$(cat ./.nvmrc)
+            docker pull "node:${NODE_VER}-alpine"
+            docker pull sammlerio/mongo
+            docker pull nats-streaming
       - run:
           name: Upgrade Docker Compose
           command: |
