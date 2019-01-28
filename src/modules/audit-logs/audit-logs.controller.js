@@ -46,7 +46,7 @@ class AuditLogsController {
   }
 
   // Todo: Test
-  // Todo: Auth
+  // Todo: Auth (only tenant_admin)
   static deleteById(req, res) {
     return AuditLogsModel
       .findByIdAndRemove(req.params.id)
@@ -56,10 +56,10 @@ class AuditLogsController {
   }
 
   // Todo: Test
-  // Todo: Auth
+  // Todo: Auth (only admins)
   static delete(req, res) {
     return AuditLogsModel
-      .remove({})
+      .deleteMany({})
       .exec()
       .then(result => ExpressResult.ok(res, result))
       .catch(err => ExpressResult.error(res, err));
