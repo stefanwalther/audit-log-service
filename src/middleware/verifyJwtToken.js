@@ -10,18 +10,17 @@ function verifyJwtToken(req, res, next) {
     validationErrors.add('Property <token> is missing. Put the <token> in either your body or use <x-access-token> in the Http-header.');
   }
   if (validationErrors.length > 0) {
-    // logger.trace('checkToken /w validationErrors', validationErrors);
+    logger.trace('checkToken /w validationErrors', validationErrors);
     return ExpressResult.unauthorized(res, validationErrors);
   }
 
   try {
     const decoded = jwt.verify(token, cfg.JWT_SECRET);
-    // logger.trace('checkToken: valid token', decoded);
     req.user = decoded;
     req.user.token = token; // Todo: this needs to be re-evaluated ... basically this is just a hack for now ...
   } catch (err) {
     validationErrors.add('Invalid token');
-    // logger.trace('checkToken: invalid token');
+    logger.trace('checkToken: invalid token');
     return ExpressResult.unauthorized(res, validationErrors);
   }
   next();
