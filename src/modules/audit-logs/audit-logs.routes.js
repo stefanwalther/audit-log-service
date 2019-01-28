@@ -1,7 +1,8 @@
 const express = require('express');
-const LogsController = require('./audit-logs.controller');
-
 const router = express.Router(); // eslint-disable-line new-cap
+
+const LogsController = require('./audit-logs.controller');
+const verifyJwtToken = require('../../middleware/verifyJwtToken');
 
 router.get('', LogsController.get);
 
@@ -9,11 +10,13 @@ router.get('', LogsController.get);
  * @swagger
  * /audit-logs/post:
  */
-router.post('', LogsController.post);
-router.delete('', LogsController.delete);
+router.post('', LogsController.post); // Todo: I guess this should be '/' instead of ''
+router.delete('', LogsController.delete); // Todo: I guess this should be '/' instead of ''
 
 // /audit-logs
-router.get('', LogsController.get);
+// Todo (AAA): Should be for the current tenant and should include some RBAC ...
+router.get('', verifyJwtToken, LogsController.get); // Todo: I guess this should be '/' instead of ''
+
 // /audit-logs:id
 router.get('/:id', LogsController.getById);
 router.delete('/:id', LogsController.deleteById);
