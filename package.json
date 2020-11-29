@@ -36,7 +36,7 @@
     "mongoose": "5.4.10",
     "mongoose-connection-config": "^0.1.2",
     "node-nats-streaming": "0.0.51",
-    "read-pkg-up": "^4.0.0",
+    "read-pkg-up": "^7.0.1",
     "sammler-nodelib-logger": "0.2.4",
     "serve-favicon": "^2.5.0",
     "swagger-jsdoc": "^3.2.3",
