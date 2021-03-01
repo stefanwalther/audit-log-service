@@ -39,7 +39,7 @@
     "read-pkg-up": "^4.0.0",
     "sammler-nodelib-logger": "0.2.4",
     "serve-favicon": "^2.5.0",
-    "swagger-jsdoc": "^3.2.3",
+    "swagger-jsdoc": "^6.0.7",
     "swagger-ui-express": "^4.0.1",
     "winster": "^0.2.11"
   },
